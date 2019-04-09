@@ -35,9 +35,10 @@ export default {
 
 <style>
 #home-card{
-    width: 48%;
+    width: 100%;
     max-width: 600px;
-    margin: 1em 0;
+    min-width: 350px;
+    margin: 1em;
     padding: 0.2em 0.8em 0.5em;
     display: flex;
     flex-direction: row;
@@ -97,13 +98,21 @@ export default {
     justify-content: space-around;
 }
 .card-stat-item{
+    padding: 0.1em 0.3em;
     display: flex;
     flex-direction: row;
     align-items: center;
 }
+.card-like{
+    background: #22658c;
+    border-radius: 5px;
+    color: white;
+    box-shadow:  0 1px 1px 0 rgba(0,0,0,.06);
+}
 .card-icon{
     width: 1.3em;
     height: 1.3em;
+    margin-right: 0.2em;
 }
 .card-count{
     line-height: 1.3em;

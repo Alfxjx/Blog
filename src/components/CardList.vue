@@ -4,6 +4,14 @@
           <home-card :title="item.title"></home-card>
       </div> -->
       <home-card></home-card>
+      <home-card></home-card>
+      <home-card></home-card>
+      <home-card></home-card>
+      <home-card></home-card>
+      <home-card></home-card>
+      <home-card></home-card>
+      <home-card></home-card>
+      <home-card></home-card>
   </div>
 </template>
 <script>
@@ -21,5 +29,11 @@ export default {
 </script>
 
 <style>
-
+#card-list{
+    flex:1;
+    margin-left: 1.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 </style>

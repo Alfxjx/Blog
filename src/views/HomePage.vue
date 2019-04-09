@@ -24,5 +24,7 @@ export default {
 </script>
 
 <style>
-
+.home-context{
+    display: flex;
+}
 </style>

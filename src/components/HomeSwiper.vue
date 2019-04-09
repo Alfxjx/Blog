@@ -18,6 +18,8 @@ export default {
 <style>
 #home-swiper{
     position: relative;
+    display: flex;
+    justify-content: center;
     width: 100%;
     padding-top: 8em;
     padding-bottom:4em;
@@ -37,6 +39,7 @@ export default {
     position: relative;
     overflow: hidden;
     max-width: 30em;
+    width: 30em;
     height: 6em;
     margin: 0 10em 0 4em;
     padding-left: 1em;
