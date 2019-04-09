@@ -10,7 +10,7 @@ import { init } from 'ityped'
 export default {
     mounted(){
         const oneElement = document.querySelector('#type')
-        init(oneElement, { showCursor: true, strings: ['Live life to the fullest.'] })
+        init(oneElement, { showCursor: false, strings: ['Live life to the fullest.'] })
     }
 }
 </script>
@@ -37,6 +37,7 @@ export default {
     position: relative;
     overflow: hidden;
     max-width: 30em;
+    height: 6em;
     margin: 0 10em 0 4em;
     padding-left: 1em;
     background: white;

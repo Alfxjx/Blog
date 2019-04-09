@@ -1,8 +1,9 @@
 <template>
   <div id="card-list">
-      <div v-for="(item, index) in lists" :key="index">
+      <!-- <div v-for="(item, index) in lists" :key="index">
           <home-card :title="item.title"></home-card>
-      </div>
+      </div> -->
+      <home-card></home-card>
   </div>
 </template>
 <script>
