@@ -36,6 +36,7 @@ export default {
 .swiper-typed{
     position: relative;
     overflow: hidden;
+    max-width: 30em;
     margin: 0 10em 0 4em;
     padding-left: 1em;
     background: white;
