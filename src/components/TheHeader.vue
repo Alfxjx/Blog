@@ -1,6 +1,6 @@
 <template>
   <div id="the-header">
-      xcew
+      
   </div>
 </template>
 <script>
