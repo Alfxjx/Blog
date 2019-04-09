@@ -3,9 +3,12 @@
       <the-header></the-header>
       <home-swiper></home-swiper>
       <div class="home-context">
-          <ul class="ctx-card"></ul>
+          <ul class="ctx-card">
+              <home-card></home-card>
+          </ul>
           <home-side-bar></home-side-bar>
       </div>
+      <the-footer></the-footer>
   </div>
 </template>
 <script>
