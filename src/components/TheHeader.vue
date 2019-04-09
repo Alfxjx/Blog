@@ -16,7 +16,7 @@
         <div class="header-btn round-btn">
             <img src="../assets/man.png" width="20" height="20" alt="">
         </div>
-        <div class="header-btn">
+        <div class="header-btn round-btn">
             <img src="../assets/github.png" width="20" height="20" alt="">
         </div>
     </div>
@@ -25,7 +25,7 @@
 <script>
 
 export default {
-    data(){
+    data() {
         return {
             btn1:'归档',
             btn2:'关于'
@@ -36,30 +36,32 @@ export default {
 
 <style>
     ::selection{
-        background-color: #006666;
+        background-color: #22658c;
         color:white;
         text-shadow: none;
     }
     #the-header{
+        z-index: 10;
         position: fixed;
+        top: 0; left:0;
         display: flex;
         justify-content: space-between;
         width: 100%;
         height: 3em;
         padding-top: 1em;
-        color: #494b4c;
+        color: #000;
     }
     .header-side {
         position: relative;
         display: flex;
         flex-direction: row;
         align-items: center;
-        background-color: transparent;
+        background-color: white;
         box-shadow:  0 1px 1px 0 rgba(0,0,0,.06);
     }
     .header-left{
         flex:0 0 250px;
-        padding-left: 1em; 
+        padding-left: 1em;
     }
     .header-right{
         flex:0 0 150px;
@@ -71,5 +73,7 @@ export default {
         padding: 0.2em 0.6em;
         font-weight: 700;
     }
-   
+    .round-btn{
+        margin-top: 0.3em;
+    }
 </style>
