@@ -4,14 +4,6 @@
           <home-card :title="item.title"></home-card>
       </div> -->
       <home-card></home-card>
-      <home-card></home-card>
-      <home-card></home-card>
-      <home-card></home-card>
-      <home-card></home-card>
-      <home-card></home-card>
-      <home-card></home-card>
-      <home-card></home-card>
-      <home-card></home-card>
   </div>
 </template>
 <script>

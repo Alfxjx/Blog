@@ -71,7 +71,7 @@
 }
 .top-wrapper{
     position:fixed;
-    bottom:20px;
+    bottom:40px;
     right:25px;
     z-index: 20;
 }
