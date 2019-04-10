@@ -1,13 +1,15 @@
 <template>
   <div id="home-page">
-      <the-header></the-header>
-      <home-swiper></home-swiper>
-      <div class="home-context">
-          <card-list></card-list>
-          <home-side-bar></home-side-bar>
-      </div>
-      <top></top>   
-      <the-footer></the-footer>
+        <div class="main-page">
+            <the-header></the-header>
+            <home-swiper></home-swiper>
+            <div class="home-context">
+                <card-list></card-list>
+                <home-side-bar></home-side-bar>
+            </div>
+            <top></top>
+        </div>   
+        <the-footer></the-footer>
   </div>
 </template>
 <script>
@@ -28,5 +30,14 @@ export default {
 <style>
 .home-context{
     display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+.main-page{
+    flex:1;
+}
+.home-context{
+    display: flex;
+    flex-direction: row;
 }
 </style>
