@@ -6,6 +6,7 @@
           <card-list></card-list>
           <home-side-bar></home-side-bar>
       </div>
+      <top></top>   
       <the-footer></the-footer>
   </div>
 </template>
@@ -16,9 +17,10 @@ import CardList from '../components/CardList'
 import HomeCard from '../components/HomeCard'
 import HomeSideBar from '../components/HomeSideBar'
 import TheFooter from '../components/TheFooter'
+import top from '../components/top.vue'
 export default {
     components:{
-        TheHeader,HomeSwiper,CardList,HomeSideBar,TheFooter
+        TheHeader,HomeSwiper,CardList,HomeSideBar,TheFooter,top
     }
 }
 </script>

@@ -8,23 +8,17 @@
         </div>
     </div>
     <div class="rank-list-sort">
-        <img class="card-icon" src="../assets/sort.png" alt="">
-        <span>排行榜</span>
-        <button>排序方法</button>
+        <div class="rank-logo">
+            <img class="card-icon" src="../assets/sort.png" alt="">
+            <span>排行榜</span>
+        </div>
+        <select class="rank-sort-select">
+            <option value="view">阅读数</option>
+            <option value="like">点赞数</option>
+            <option value="comment">评论数</option>
+        </select>
     </div>
     <ul class="rank-list">
-        <li>
-            <span>1</span>
-            吃的是的生命
-        </li>
-        <li>
-            <span>1</span>
-            吃的是的生命
-        </li>
-        <li>
-            <span>1</span>
-            吃的是的生命
-        </li>
         <li>
             <span>1</span>
             吃的是的生命
@@ -73,5 +67,18 @@ export default {
     line-height: 1.25em;
     font-size: 0.8em;
     color: rgb(121,121,121);
-} 
+}
+.rank-list-sort{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.5em 0;
+}
+.rank-logo{
+    display: flex;
+    align-items: center;
+}
+.rank-list{
+    margin-left: 1em;
+}
 </style>
