@@ -46,6 +46,7 @@
     padding-left: 1em;
     background: white;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .06);
+    border-radius: 5px;
   }
   @media screen and (max-width:700px){
     .swiper-typed{
