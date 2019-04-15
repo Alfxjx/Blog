@@ -5,6 +5,7 @@ import Archive from './views/Archive.vue'
 import ContentPage from './views/ContentPage.vue'
 import Login from './views/Login.vue'
 import AdminEdit from './views/AdminEdit.vue'
+import About from './views/About.vue'
 
 Vue.use(Router)
 
@@ -39,6 +40,11 @@ export default new Router({
       name: 'admin',
       path: '/admin',
       component: AdminEdit
+    },
+    {
+      name:'about',
+      path:'/about',
+      component: About
     }
   ]
 })

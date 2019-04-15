@@ -1,11 +1,12 @@
 <template>
   <div id="the-header">
     <div class="header-side header-left">
-      <img src="../assets/logo.png" width="64" height="18" alt="logo" @click="goHome()">
-      <div class="header-btn">
+      <!--<img src="../assets/logo.png" width="64" height="18" alt="logo" @click="goTo(home)">-->
+      <span @click="goTo(home)">我的博客</span>
+      <div class="header-btn" @click="goTo(archive)">
         {{btn1}}
       </div>
-      <div class="header-btn">
+      <div class="header-btn" @click="goTo(about)">
         {{btn2}}
       </div>
       <div class="header-btn round-btn">
@@ -28,12 +29,15 @@
     data() {
       return {
         btn1: '归档',
-        btn2: '关于'
+        btn2: '关于',
+        home: 'home',
+        archive: 'archive',
+        about: 'about'
       }
     },
     methods: {
-      goHome() {
-        this.$router.push('/home')
+      goTo(url) {
+        this.$router.push('/' + url)
       }
     }
   }

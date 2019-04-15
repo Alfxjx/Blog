@@ -34,7 +34,7 @@
     justify-content: center;
     width: 100%;
     padding-top: 8em;
-    padding-bottom: 1em;
+    padding-bottom: 4em;
     box-shadow: 0 1px 1px 0 rgba(121,121,121, .06);
     margin-bottom: 1em;
   }
@@ -50,6 +50,7 @@
 
   .content-author-info span {
     line-height: 2em;
+    margin: 0 1em;
   }
   .content-typed {
     position: relative;
@@ -73,6 +74,8 @@
     #content-swiper{
       flex-direction: column;
       align-items: center;
+      padding-bottom: 1em;
+      padding-top: 4em;
     }
     .content-typed{
       width: 80%;
