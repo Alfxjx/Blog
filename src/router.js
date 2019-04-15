@@ -5,38 +5,40 @@ import Archive from './views/Archive.vue'
 import ContentPage from './views/ContentPage.vue'
 import Login from './views/Login.vue'
 import AdminEdit from './views/AdminEdit.vue'
+
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-        path:'/',
-        redirect:'/home'
-    }, 
-    {
-        name:'home',
-        path:'/home',
-        component:HomePage
+      path: '/',
+      redirect: '/home'
     },
     {
-        name:'archive',
-        path:'/archive',
-        component:Archive
+      name: 'home',
+      path: '/home',
+      component: HomePage
     },
     {
-        name:'content',
-        path:'/tempC',
-        component:ContentPage
+      name: 'archive',
+      path: '/archive',
+      component: Archive
     },
     {
-        name:'login',
-        path:'/login',
-        component:Login
+      name: 'content',
+      path: '/blog/:_id',
+      props: true,
+      component: ContentPage
     },
     {
-        name:'admin',
-        path:'/admin',
-        component:AdminEdit
+      name: 'login',
+      path: '/login',
+      component: Login
+    },
+    {
+      name: 'admin',
+      path: '/admin',
+      component: AdminEdit
     }
   ]
 })

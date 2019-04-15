@@ -8,7 +8,7 @@
 
 <script type="text/ecmascript-6">
   export default {
-    name: "top",
+    name: 'top',
     data() {
       return {
         scrollTop: 0,
@@ -60,20 +60,23 @@
 </script>
 
 <style>
-.top-icon{
+  .top-icon {
+    background: white;
     border-radius: 50%;
     padding: 0.5em;
-    box-shadow: 0 1px 1px 2px rgba(0,0,0,.16); 
-}
-.icom-img{
-    width: 1em;
-    height: 1em;
-}
-.top-wrapper{
-    position:fixed;
-    bottom:90px;
-    right:25px;
+    box-shadow: 0 3px 2px 2px rgba(121, 121, 121, 0.26);
+  }
+
+  .icom-img {
+    width: 1.3em;
+    height: 1.3em;
+  }
+
+  .top-wrapper {
+    position: fixed;
+    bottom: 60px;
+    right: 45px;
     z-index: 20;
-}
-    
+  }
+
 </style>
