@@ -74,7 +74,7 @@
 
   .top-wrapper {
     position: fixed;
-    bottom: 60px;
+    bottom: 75px;
     right: 45px;
     z-index: 20;
   }

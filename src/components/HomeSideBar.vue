@@ -92,6 +92,7 @@
   }
 
   .rank-list {
-    margin-left: 1em;
+    margin: 1em 0 0 1em;
+    padding: 0;
   }
 </style>
