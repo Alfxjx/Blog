@@ -1,29 +1,25 @@
-# new-blog
+# 个人博客/新版
 
-## Project setup
-```
-npm install
-```
+[![LICENSE](https://img.shields.io/badge/license-Anti%20996-blue.svg?style=flat-square)](https://github.com/996icu/996.ICU/blob/master/LICENSE)
+[![Mit](https://img.shields.io/badge/license-MIT-green.svg)](https://mit-license.org/)
+> 介于之前写的那个博客前端实在是不行，决定重新写一版博客前端界面。
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+[之前的rep](https://github.com/Alfxjx/material-blog)
+[API](http://www.alfxjx.club/apiblog/index.html)
+合作者：[ape-casear](https://github.com/ape-casear)
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## 目前已经完成的部分
 
-### Run your tests
-```
-npm run test
-```
+- 主页的主要结构
+- 文章内容页的主要结构
 
-### Lints and fixes files
-```
-npm run lint
-```
+## TODO
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- 详情页面的TOC
+- 主页的side,热门文章的排序
+
+## 还未做的部分
+
+- 归档、关于
+- 登录、注册
+- 后台管理页面
