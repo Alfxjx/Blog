@@ -2,7 +2,7 @@
   <div id="home-page">
     <div class="main-page">
       <the-header></the-header>
-      <home-swiper></home-swiper>
+      <home-swiper :title="title"></home-swiper>
       <div class="home-context">
         <card-list></card-list>
         <home-side-bar></home-side-bar>
@@ -21,6 +21,11 @@
   import top from '../components/top.vue'
 
   export default {
+    data () {
+      return {
+        title:'Live life to its fullest'
+      }
+    },
     components: {
       TheHeader, HomeSwiper, CardList, HomeSideBar, TheFooter, top
     }
@@ -28,24 +33,24 @@
 </script>
 
 <style scoped>
+.home-context {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.main-page {
+  flex: 1;
+}
+
+.home-context {
+  display: flex;
+  flex-direction: row;
+}
+@media screen and (max-width: 800px) {
   .home-context {
     display: flex;
-    min-height: 100vh;
     flex-direction: column;
   }
-
-  .main-page {
-    flex: 1;
-  }
-
-  .home-context {
-    display: flex;
-    flex-direction: row;
-  }
-  @media screen and (max-width: 800px){
-    .home-context {
-      display: flex;
-      flex-direction: column;
-    }
-  }
+}
 </style>

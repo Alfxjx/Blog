@@ -1,14 +1,11 @@
 <template>
-  <div id="admin-edit">
-      edit
-  </div>
+  <div id="admin-edit">edit</div>
 </template>
 <script>
 export default {
-    name:'adminEdit'
-}
+  name: "adminEdit"
+};
 </script>
 
 <style>
-
 </style>

@@ -1,100 +1,95 @@
 <template>
   <div id="content-page">
     <the-header></the-header>
-    <content-title
-      :title="ctx.title"
-      :author="ctx.author"
-      :createdAt="ctx.createdAt"
-    ></content-title>
+    <content-title :title="ctx.title" :author="ctx.author" :createdAt="ctx.createdAt"></content-title>
     <div class="content-main-wrapper">
-      <div class="content-main"
-           v-html="mkdCompiled"
-           v-highlight
-      >
-      </div>
+      <div class="content-main" v-html="mkdCompiled" v-highlight></div>
     </div>
     <top></top>
     <the-footer></the-footer>
   </div>
 </template>
 <script>
-  import TheHeader from '../components/TheHeader'
-  import ContentTitle from '../components/ContentTitle'
-  import TheFooter from '../components/TheFooter'
-  import top from '../components/top.vue'
-  import { get } from '../api/api.js'
-  import marked from 'marked'
+import TheHeader from "../components/TheHeader";
+import ContentTitle from "../components/ContentTitle";
+import TheFooter from "../components/TheFooter";
+import top from "../components/top.vue";
+import { get } from "../api/api.js";
+import marked from "marked";
 
-  export default {
-    name: 'content-page',
-    props: ['_id'],
-    data() {
-      return {
-        ctx: {}
+export default {
+  name: "content-page",
+  props: ["_id"],
+  data() {
+    return {
+      ctx: {}
+    };
+  },
+  created() {
+    this._getContent();
+  },
+  mounted() {
+    this._markdown();
+  },
+  computed: {
+    mkdCompiled() {
+      if (this.ctx.content) {
+        return marked(this.ctx.content);
+      } else {
+        return "";
       }
-    },
-    created() {
-      this._getContent()
-    },
-    mounted() {
-      this._markdown()
-    },
-    computed: {
-      mkdCompiled() {
-        if (this.ctx.content) {
-          return marked(this.ctx.content)
-        } else {
-          return ''
-        }
-      }
-    },
-    methods: {
-      _getContent() {
-        get('/blog/' + this._id)().then(res => {
-          this.ctx = res
-        })
-      },
-      _markdown() {
-        marked.setOptions({
-          renderer: new marked.Renderer(),
-          gfm: true,
-          tables: true,
-          breaks: true,
-          pedantic: false,
-          sanitize: true,
-          smartLists: true,
-          smartypants: false
-        })
-      }
-    },
-    components: {
-      TheHeader, ContentTitle, TheFooter, top
     }
+  },
+  methods: {
+    _getContent() {
+      get("/blog/" + this._id)().then(res => {
+        this.ctx = res;
+      });
+    },
+    _markdown() {
+      marked.setOptions({
+        renderer: new marked.Renderer(),
+        gfm: true,
+        tables: true,
+        breaks: true,
+        pedantic: false,
+        sanitize: true,
+        smartLists: true,
+        smartypants: false
+      });
+    }
+  },
+  components: {
+    TheHeader,
+    ContentTitle,
+    TheFooter,
+    top
   }
+};
 </script>
 
 <style>
-  .content-main-wrapper {
-    margin: 0 auto;
-    width: 70%;
-    box-shadow: 0px 0px 1px 1px rgba(121, 121, 121, 0.1);
-  }
+.content-main-wrapper {
+  margin: 0 auto;
+  width: 70%;
+  box-shadow: 0px 0px 1px 1px rgba(121, 121, 121, 0.1);
+}
 
-  .content-main-wrapper:hover {
-    box-shadow: 1px 1px 1px 2px rgba(121, 121, 121, 0.2);
+.content-main-wrapper:hover {
+  box-shadow: 1px 1px 1px 2px rgba(121, 121, 121, 0.2);
+}
+
+.content-main {
+  padding: 2em 3em;
+}
+
+@media screen and (max-width: 700px) {
+  .content-main-wrapper {
+    width: 100%;
   }
 
   .content-main {
-    padding: 2em 3em;
+    padding: 1em 0.5em;
   }
-
-  @media screen and (max-width: 700px) {
-    .content-main-wrapper {
-      width: 100%;
-    }
-
-    .content-main {
-      padding: 1em 0.5em;
-    }
-  }
+}
 </style>

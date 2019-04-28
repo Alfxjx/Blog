@@ -2,7 +2,7 @@
   <div id="card-list">
     <!-- <div v-for="(item, index) in lists" :key="index">
         <home-card :title="item.title"></home-card>
-    </div> -->
+    </div>-->
     <home-card
       v-for="(item,index) in list"
       :key="index"
@@ -19,40 +19,40 @@
   </div>
 </template>
 <script>
-  import HomeCard from './HomeCard.vue'
+import HomeCard from "./HomeCard.vue";
 
-  export default {
-    created() {
-      this._get()
-    },
-    computed: {
-      list() {
-        return this.$store.state.blogList
-      }
-    },
-    methods: {
-      _get() {
-        this.$store.dispatch('getBlogList')
-      }
-    },
-    components: {
-      HomeCard
+export default {
+  created() {
+    this._get();
+  },
+  computed: {
+    list() {
+      return this.$store.state.blogList;
     }
+  },
+  methods: {
+    _get() {
+      this.$store.dispatch("getBlogList");
+    }
+  },
+  components: {
+    HomeCard
   }
+};
 </script>
 
 <style>
-  #card-list {
-    flex: 1;
-    margin-left: 1.5em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+#card-list {
+  flex: 1;
+  margin-left: 1.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  @media screen and (max-width: 700px) {
-    #card-list {
-      margin-left: 0;
-    }
+@media screen and (max-width: 700px) {
+  #card-list {
+    margin-left: 0;
   }
+}
 </style>

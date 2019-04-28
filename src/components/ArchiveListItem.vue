@@ -1,12 +1,9 @@
 <template>
-  <div id="archive-list-item">
-
-  </div>
+  <div id="archive-list-item"></div>
 </template>
 <script>
-  export default {}
+export default {};
 </script>
 
 <style>
-
 </style>
