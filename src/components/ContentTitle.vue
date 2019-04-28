@@ -1,7 +1,7 @@
 <template>
   <div id="content-swiper" class="test2">
     <div class="content-typed">
-      <span id="content-title">{{title}}</span>
+      <span id="content-title"></span>
     </div>
     <div class="content-author-info">
       <span>{{author}}写于</span>
@@ -11,9 +11,20 @@
 </template>
 
 <script type="text/ecmascript-6">
+import { init } from "ityped";
 export default {
   name: "ContentTitle",
   props: ["title", "author", "createdAt"],
+  // 需要放在updated钩子里面
+  updated() {
+    const oneElement = document.querySelector("#content-title");
+    init(oneElement, {
+      showCursor: false,
+      loop: false,
+      disableBackTyping: true,
+      strings: [this.title]
+    });
+  },
   computed: {
     time() {
       if (this.createdAt) {

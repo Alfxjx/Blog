@@ -23,7 +23,7 @@
   export default {
     data () {
       return {
-        title:'Live life to its fullest'
+        title:'Live life to its fullest.'
       }
     },
     components: {
