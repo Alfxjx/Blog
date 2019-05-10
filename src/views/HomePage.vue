@@ -21,9 +21,9 @@
   import top from '../components/top.vue'
 
   export default {
-    data () {
+    data() {
       return {
-        title:'Live life to its fullest.'
+        title: 'Live life to its fullest.'
       }
     },
     components: {
@@ -33,24 +33,25 @@
 </script>
 
 <style scoped>
-.home-context {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-}
-
-.main-page {
-  flex: 1;
-}
-
-.home-context {
-  display: flex;
-  flex-direction: row;
-}
-@media screen and (max-width: 800px) {
   .home-context {
     display: flex;
+    min-height: 100vh;
     flex-direction: column;
   }
-}
+
+  .main-page {
+    flex: 1;
+  }
+
+  .home-context {
+    display: flex;
+    flex-direction: row;
+  }
+
+  @media screen and (max-width: 800px) {
+    .home-context {
+      display: flex;
+      flex-direction: column;
+    }
+  }
 </style>

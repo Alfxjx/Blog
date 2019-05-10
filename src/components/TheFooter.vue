@@ -1,5 +1,5 @@
 <template>
-  <footer id="the-footer">
+  <div id="the-footer">
     <div class="footer-upper">
       <ul class="social-links">
         <li v-for="(link,index) in links" :key="index">
@@ -29,91 +29,96 @@
         </a>
       </div>
     </div>
-  </footer>
+  </div>
 </template>
 <script>
-export default {
-  data() {
-    return {
-      links: [
-        {
-          name: "github",
-          links: "#",
-          src: require("../assets/logo-github.png")
-        },
-        { name: "twitter", links: "#", src: require("../assets/twitter.png") },
-        {
-          name: "reddit",
-          links: "#",
-          src: require("../assets/logo-reddit.png")
-        },
-        { name: "zhihu", links: "#", src: require("../assets/zhihu.png") }
-      ]
-    };
+  export default {
+    data() {
+      return {
+        links: [
+          {
+            name: 'github',
+            links: '#',
+            src: require('../assets/logo-github.png')
+          },
+          { name: 'twitter', links: '#', src: require('../assets/twitter.png') },
+          {
+            name: 'reddit',
+            links: '#',
+            src: require('../assets/logo-reddit.png')
+          },
+          { name: 'zhihu', links: '#', src: require('../assets/zhihu.png') }
+        ]
+      }
+    }
   }
-};
 </script>
 
 <style>
-#the-footer {
-  margin-top: 3em;
-  padding: 1em 3em;
-  height: 4em;
-  display: flex;
-  flex-direction: column;
-  background: #22658c;
-  border-top: 1px solid #e2e2e2;
-}
+  #the-footer {
+    flex: 0;
+    width: 100%;
+    margin-top: 3em;
+    padding: 1em 0;
+    height: 4em;
+    display: flex;
+    flex-direction: column;
+    background: #22658c;
+    border-top: 1px solid #e2e2e2;
+  }
 
-.footer-upper {
-  flex: 9;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-.beian {
-  flex: 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-.beian span {
-  line-height: 20px;
-  color: #cdcdcd;
-}
-.social-links {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding-left: 0;
-  margin: 0;
-}
+  .footer-upper {
+    flex: 9;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
 
-.social-link-logo {
-  width: 1.2em;
-  height: 1.2em;
-}
+  .beian {
+    flex: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
 
-.with-text {
-  display: flex;
-  align-items: center;
-}
+  .beian span {
+    line-height: 20px;
+    color: #cdcdcd;
+  }
 
-.social-text {
-  color: #cdcdcd;
-  font-size: 0.8em;
-  line-height: 1.5em;
-  margin-right: 0.5em;
-}
+  .social-links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 0;
+    margin: 0;
+  }
 
-.logo-position {
-  margin: 0 0.5em 0 0;
-}
+  .social-link-logo {
+    width: 1.2em;
+    height: 1.2em;
+  }
 
-.qrcode-pic {
-  width: 4em;
-  height: 4em;
-}
+  .with-text {
+    display: flex;
+    align-items: center;
+  }
+
+  .social-text {
+    color: #cdcdcd;
+    font-size: 0.8em;
+    line-height: 1.5em;
+    margin-right: 0.5em;
+  }
+
+  .logo-position {
+    margin: 0 0.5em 0 0;
+  }
+
+  .qrcode-pic {
+    width: 4em;
+    height: 4em;
+  }
 </style>
