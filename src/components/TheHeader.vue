@@ -6,15 +6,22 @@
       <div class="header-btn" @click="goTo(archive)">{{btn1}}</div>
       <div class="header-btn" @click="goTo(about)">{{btn2}}</div>
       <div class="header-btn round-btn">
-        <img src="../assets/add.png" width="20" height="20" alt>
+        <img src="../assets/add.png" width="20" height="20" alt="add" title="add new">
       </div>
     </div>
     <div class="header-side header-right">
       <div class="header-btn round-btn">
-        <img src="../assets/man.png" width="20" height="20" alt>
+        <img
+          src="../assets/man.png"
+          width="20"
+          height="20"
+          alt="login"
+          title="login"
+          @click="goTo('login')"
+        >
       </div>
       <div class="header-btn round-btn">
-        <img src="../assets/github.png" width="20" height="20" alt>
+        <img src="../assets/setting.png" width="20" height="20" alt="admin" title="admin">
       </div>
     </div>
   </div>
