@@ -1,5 +1,6 @@
 <template>
   <div id="login">
+    <the-header></the-header>
     <div class="login-card envelope">
       <h4>登录以获取更多功能</h4>
       <input
@@ -29,7 +30,8 @@
   </div>
 </template>
 <script>
-  import { checkUser, register } from '../api/api'
+  import { checkUser, register, login } from '../api/api'
+  import TheHeader from '../components/TheHeader'
 
   export default {
     name: 'login',
@@ -40,16 +42,28 @@
       }
     },
     methods: {
+      // 对注册的账号密码有要求
       async login() {
         console.log(this.username + '+' + this.password)
         const isExist = await checkUser(this.username)
+        // console.log(isExist)
         if (isExist === 1) {
           console.log('已经注册了')
+          let ret = await login(this.username, this.password)
+          if (ret === 1) {
+            console.log('登录成功')
+          } else {
+            console.log('登录失败')
+          }
         } else {
-          const res = await register(this.username, this.password)
-          console.log('click' + res)
+          console.log('未注册')
+          let ret = await register(this.username, this.password)
+          console.log(ret)
         }
       }
+    },
+    components: {
+      TheHeader
     }
   }
 </script>

@@ -1,5 +1,5 @@
 import axios from 'axios'
-import qs from "qs";
+import qs from 'qs'
 
 const urlMap = {
   development: '/api',
@@ -7,7 +7,7 @@ const urlMap = {
 }
 
 const baseUrl =
-  urlMap[process.env.NODE_ENV === 'production' ? 'production' : 'production']
+  urlMap[process.env.NODE_ENV === 'production' ? 'production' : 'development']
 
 function get(url) {
   return function (params = {}) {
@@ -31,7 +31,7 @@ function get(url) {
 function register(username, password) {
   return axios({
     method: 'post',
-    datatType: 'jsonp',
+    dataType: 'jsonp',
     url: baseUrl + '/registry/local',
     headers: {
       'x-csrf-token': 'f3WeUA9nX2Ep72Qeab91C9XR'
@@ -42,12 +42,39 @@ function register(username, password) {
     },
     withCredentials: true
   }).then((res) => {
-    const { statusCode, data } = res.data
+    let { statusCode, data } = res.data
     if (statusCode === 1) {
+      console.log('register success')
       console.log(data)
+      return statusCode
     }
-  }).catch((e) => {
-    console.log('error')
+  }).catch(() => {
+    console.log('register error')
+  })
+}
+
+function login(username, password) {
+  return axios({
+    method: 'post',
+    dataType: 'jsonp',
+    url: baseUrl + '/auth/local',
+    headers: {
+      'x-csrf-token': 'f3WeUA9nX2Ep72Qeab91C9XR'
+    },
+    data: {
+      username: username,
+      password: password
+    },
+    withCredentials: true
+  }).then((res) => {
+    let { statusCode, data } = res.data
+    if (statusCode === 1) {
+      console.log('login succeess')
+      console.log(data)
+      return statusCode
+    }
+  }).catch(() => {
+    console.log('login error')
   })
 }
 
@@ -56,8 +83,10 @@ async function checkUser(name) {
     let res = await axios.get(baseUrl + '/user/check-username?username=' + name)
     res = res.data
     if (res.statusCode === 1) {
-      console.log(res.statusCode)
+      // console.log(res.statusCode)
       return res.statusCode
+    } else {
+      return 0
     }
   } catch (e) {
     console.log(e)
@@ -145,4 +174,4 @@ export async function generalRequest(url, method, params) {
 const getList = get('/blog')
 const getCategory = get('/blog-category')
 const getTag = get('/blog-tags')
-export { get, getList, getCategory, getTag, register, checkUser }
+export { get, getList, getCategory, getTag, register, checkUser, login }
