@@ -3,18 +3,30 @@
     <the-header></the-header>
     <div class="login-card envelope">
       <h4>登录以获取更多功能</h4>
-      <input
-        class="username login-input form-control"
-        type="text"
-        placeholder="请输入账号"
-        v-model="username"
-      >
-      <input
-        class="password login-input form-control"
-        type="text"
-        placeholder="请输入密码"
-        v-model="password"
-      >
+      <div class="input-wrapper">
+        <input
+          class="username login-input form-control"
+          type="text"
+          placeholder="请输入账号"
+          v-model="username"
+        >
+        <span class="input-do-btn" @click="cancelInput">
+        <img src="../assets/cancel.png" alt="cancel" width="16px" height="16px">
+      </span>
+      </div>
+      <div class="input-wrapper">
+        <input
+          class="password login-input form-control"
+          id="password"
+          type="text"
+          placeholder="请输入密码"
+          v-model="password"
+        >
+        <span @click="showPassword" class="input-do-btn">
+        <img :src="eyeOpen" alt="view" v-show="isShow" width="16px" height="16px">
+        <img :src="eyeClose" alt="view" v-show="!isShow" width="16px" height="16px">
+      </span>
+      </div>
       <div class="login-btn">
         <span
           class="login-btn btn btn-primary"
@@ -38,7 +50,10 @@
     data() {
       return {
         username: '',
-        password: ''
+        password: '',
+        eyeOpen: require('../assets/eyeOpen.png'),
+        eyeClose: require('../assets/eyeClose.png'),
+        isShow: true
       }
     },
     methods: {
@@ -59,6 +74,22 @@
           console.log('未注册')
           let ret = await register(this.username, this.password)
           console.log(ret)
+        }
+      },
+      cancelInput() {
+        // truthy&falsy如何区分
+        // https://developer.mozilla.org/en-US/docs/Glossary/Falsy
+        if (this.username) {
+          this.username = ''
+        }
+      },
+      showPassword() {
+        if (!this.isShow) {
+          this.isShow = !this.isShow
+          document.getElementById('password').type = 'text'
+        } else {
+          this.isShow = !this.isShow
+          document.getElementById('password').type = 'password'
         }
       }
     },
@@ -92,7 +123,19 @@
   }
 
   .login-input::placeholder {
-    text-align: center;
+    text-align: left;
+  }
+
+  .input-wrapper {
+    position: relative;
+    /*抵消form-control的水平padding12px*/
+    margin-left: -24px;
+  }
+
+  .input-do-btn {
+    position: absolute;
+    bottom: 0.75em;
+    right: -15px;
   }
 
   .login-btn {
