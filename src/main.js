@@ -5,7 +5,7 @@ import store from './store'
 import './common/css/index.css'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/atom-one-dark-reasonable.css'
-
+import './element'
 Vue.config.productionTip = false
 Vue.directive('highlight', (el) => {
   let blocks = el.querySelectorAll('pre code')

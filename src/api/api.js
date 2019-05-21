@@ -28,6 +28,29 @@ function get(url) {
   }
 }
 
+function like(id) {
+  return axios({
+    method: 'put',
+    url: baseUrl + '/blog/like/' + id,
+    // todo 使用这个token为什么就可以了
+    // 如何使用token
+    headers: {
+      'x-csrf-token': 'eeDeM4Cnu_PjUxsFntPt8jMr'
+    }
+  }).then(res => {
+    let { statusCode, msg } = res.data
+    if (statusCode === 1) {
+      console.log(msg)
+      return msg
+    } else {
+      console.log('like error')
+      return statusCode
+    }
+  }).catch(() => {
+    console.log('like error')
+  })
+}
+
 function register(username, password) {
   return axios({
     method: 'post',
@@ -174,4 +197,4 @@ export async function generalRequest(url, method, params) {
 const getList = get('/blog')
 const getCategory = get('/blog-category')
 const getTag = get('/blog-tags')
-export { get, getList, getCategory, getTag, register, checkUser, login }
+export { get, like, getList, getCategory, getTag, register, checkUser, login }

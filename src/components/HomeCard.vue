@@ -1,8 +1,8 @@
 <template>
   <!--没有这个wrapper就会不好列表渲染了-->
   <div class="card-wrapper">
-    <div id="home-card" @click="goContent()">
-      <div class="card-left">
+    <div id="home-card">
+      <div class="card-left" @click="goContent">
         <div class="author-info">
           <img class="card-avatar" src="../assets/avatar.png" alt="ava">
           <span class="card-date">{{time}}</span>
@@ -15,7 +15,7 @@
         </div>
       </div>
       <div class="card-right">
-        <div class="img-wrapper">
+        <div class="img-wrapper" @click="goContent">
           <img class="card-picture" :src="img" alt="头图">
         </div>
         <div class="card-stat">
@@ -27,7 +27,7 @@
             <img class="card-icon" src="../assets/view.png" alt="阅读">
             <span class="card-count">{{viewCount}}</span>
           </div>
-          <div class="card-like card-stat-item">
+          <div class="card-like card-stat-item" @click="addLike">
             <img class="card-icon" src="../assets/like.png" alt="喜欢">
             <span class="card-count">{{like}}</span>
           </div>
@@ -37,6 +37,9 @@
   </div>
 </template>
 <script>
+  import { like } from '../api/api'
+  import { Notification } from 'element-ui'
+
   export default {
     name: 'card',
     props: [
@@ -50,6 +53,11 @@
       'like',
       'createdAt'
     ],
+    data() {
+      return {
+        liked: false
+      }
+    },
     computed: {
       time() {
         if (this.createdAt) {
@@ -64,6 +72,27 @@
       goContent() {
         console.log(this._id)
         this.$router.push('/blog/' + this._id)
+      },
+      addLike() {
+        like(this._id).then((res) => {
+          // TODO
+          if (!isNaN(res)) {
+            Notification({
+              title: '失败',
+              type: 'warning',
+              message: res,
+              offset: 60
+            })
+          } else {
+            Notification({
+              title: '结果',
+              message: res,
+              type: 'info',
+              offset: 60
+            })
+            // this.like++
+          }
+        })
       }
     }
   }
