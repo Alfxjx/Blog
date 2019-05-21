@@ -1,6 +1,5 @@
 <template>
   <div id="login">
-    <the-header></the-header>
     <div class="login-card envelope">
       <h4>登录以获取更多功能</h4>
       <div class="input-wrapper">
@@ -51,7 +50,6 @@
 </template>
 <script>
   import { checkUser, register, login } from '../api/api'
-  import TheHeader from '../components/TheHeader'
 
   export default {
     name: 'login',
@@ -116,9 +114,6 @@
           this.formatPassword = true
         }
       }
-    },
-    components: {
-      TheHeader
     }
   }
 </script>

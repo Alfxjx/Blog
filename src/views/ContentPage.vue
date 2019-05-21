@@ -1,7 +1,6 @@
 <template>
   <div id="content-page">
     <div class="main-page">
-      <the-header></the-header>
       <content-title :title="ctx.title" :author="ctx.author" :createdAt="ctx.createdAt"></content-title>
       <div class="content-main-wrapper">
         <div class="content-main" v-html="mkdCompiled" v-highlight></div>
@@ -12,7 +11,6 @@
   </div>
 </template>
 <script>
-  import TheHeader from '../components/TheHeader'
   import ContentTitle from '../components/ContentTitle'
   import TheFooter from '../components/TheFooter'
   import top from '../components/top.vue'
@@ -62,7 +60,6 @@
       }
     },
     components: {
-      TheHeader,
       ContentTitle,
       TheFooter,
       top

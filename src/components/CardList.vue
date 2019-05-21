@@ -20,7 +20,7 @@
   </div>
 </template>
 <script>
-  import HomeCard from './HomeCard.vue'
+  // import HomeCard from './HomeCard.vue'
 
   export default {
     created() {
@@ -28,7 +28,8 @@
     },
     computed: {
       list() {
-        return this.$store.state.blogList.reverse()
+        let ret = this.$store.state.blogList
+        return ret.reverse()
       }
     },
     methods: {
@@ -37,7 +38,11 @@
       }
     },
     components: {
-      HomeCard
+      // 组件懒加载
+      // HomeCard
+      HomeCard: resolve => {
+        require(['./HomeCard.vue'], resolve)
+      }
     }
   }
 </script>

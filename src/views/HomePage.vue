@@ -1,7 +1,6 @@
 <template>
   <div id="home-page">
     <div class="main-page">
-      <the-header></the-header>
       <home-swiper :title="title"></home-swiper>
       <div class="home-context">
         <card-list></card-list>
@@ -13,7 +12,6 @@
   </div>
 </template>
 <script>
-  import TheHeader from '../components/TheHeader'
   import HomeSwiper from '../components/HomeSwiper'
   import CardList from '../components/CardList'
   import HomeSideBar from '../components/HomeSideBar'
@@ -27,7 +25,7 @@
       }
     },
     components: {
-      TheHeader, HomeSwiper, CardList, HomeSideBar, TheFooter, top
+      HomeSwiper, CardList, HomeSideBar, TheFooter, top
     }
   }
 </script>

@@ -1,15 +1,15 @@
 <template>
-  <div id="about-page">
-    <!--<the-header></the-header>-->
+  <div id="add-blog">
+    123
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-
   export default {
-    name: 'About'
+    name: 'AddBlog'
   }
 </script>
 
 <style>
+
 </style>

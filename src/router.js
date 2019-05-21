@@ -6,6 +6,7 @@ import ContentPage from './views/ContentPage.vue'
 import Login from './views/Login.vue'
 import AdminEdit from './views/AdminEdit.vue'
 import About from './views/About.vue'
+import AddBlog from './views/AddBlog'
 
 Vue.use(Router)
 
@@ -45,6 +46,11 @@ export default new Router({
       name:'about',
       path:'/about',
       component: About
+    },
+    {
+      name:'add',
+      path:'/add',
+      component:AddBlog
     }
   ]
 })

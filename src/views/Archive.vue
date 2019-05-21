@@ -1,7 +1,7 @@
 <template>
   <div id="archive">
     <div class="main-page">
-      <the-header></the-header>
+      <!--<the-header></the-header>-->
       <div class="arch-main">
         <div class="arch-list">
           <span class="arch-year">2019</span>

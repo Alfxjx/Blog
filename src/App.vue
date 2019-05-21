@@ -1,9 +1,11 @@
 <template>
   <div id="app">
+    <the-header></the-header>
     <router-view></router-view>
   </div>
 </template>
 <script>
+  import TheHeader from './components/TheHeader'
   import { Notification } from 'element-ui'
 
   export default {
@@ -16,6 +18,9 @@
       //   position: 'top-right',
       //   offset: 60
       // })
+    },
+    components: {
+      TheHeader
     }
   }
 </script>

@@ -6,7 +6,14 @@
       <div class="header-btn" @click="goTo(archive)">{{btn1}}</div>
       <div class="header-btn" @click="goTo(about)">{{btn2}}</div>
       <div class="header-btn round-btn">
-        <img src="../assets/add.png" width="20" height="20" alt="add" title="add new">
+        <img
+          src="../assets/add.png"
+          width="20"
+          height="20"
+          alt="add"
+          title="add new"
+          @click="goTo(add)"
+        >
       </div>
     </div>
     <div class="header-side header-right">
@@ -21,89 +28,98 @@
         >
       </div>
       <div class="header-btn round-btn">
-        <img src="../assets/setting.png" width="20" height="20" alt="admin" title="admin">
+        <img
+          src="../assets/setting.png"
+          width="20"
+          height="20"
+          alt="admin"
+          title="admin"
+          @click="goTo(admin)"
+        >
       </div>
     </div>
   </div>
 </template>
 <script>
-export default {
-  data() {
-    return {
-      btn1: "归档",
-      btn2: "关于",
-      home: "home",
-      archive: "archive",
-      about: "about"
-    };
-  },
-  methods: {
-    goTo(url) {
-      this.$router.push("/" + url);
+  export default {
+    data() {
+      return {
+        btn1: '归档',
+        btn2: '关于',
+        home: 'home',
+        archive: 'archive',
+        about: 'about',
+        add: 'add',
+        admin: 'admin'
+      }
+    },
+    methods: {
+      goTo(url) {
+        this.$router.push('/' + url)
+      }
     }
   }
-};
 </script>
 
 <style>
-::selection {
-  background-color: #22658c;
-  color: white;
-  text-shadow: none;
-}
+  ::selection {
+    background-color: #22658c;
+    color: white;
+    text-shadow: none;
+  }
 
-#the-header {
-  z-index: 10;
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  height: 3em;
-  padding-top: 1em;
-  color: #000;
-}
+  #the-header {
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 3em;
+    padding-top: 1em;
+    color: #000;
+  }
 
-.header-side {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  background-color: white;
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.06);
-}
+  .header-side {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.06);
+  }
 
-.header-left {
-  flex: 0 0 250px;
-  padding-left: 1em;
-}
-
-.header-right {
-  flex: 0 0 150px;
-}
-
-@media screen and (max-width: 700px) {
   .header-left {
-    flex: 0 0 220px;
-    padding-left: 10px;
+    flex: 0 0 250px;
+    padding-left: 1em;
   }
 
   .header-right {
-    flex: 0 0 80px;
+    flex: 0 0 150px;
   }
-}
 
-.header-right:first-child {
-  margin-left: 1em;
-}
+  @media screen and (max-width: 700px) {
+    .header-left {
+      flex: 0 0 220px;
+      padding-left: 10px;
+    }
 
-.header-btn {
-  padding: 0.2em 0.6em;
-  font-weight: 700;
-}
+    .header-right {
+      flex: 0 0 80px;
+    }
+  }
 
-.round-btn {
-  margin-top: 0.3em;
-}
+  .header-right:first-child {
+    margin-left: 1em;
+  }
+
+  .header-btn {
+    padding: 0.2em 0.6em;
+    font-weight: 700;
+  }
+
+  .round-btn {
+    margin-top: 0.3em;
+  }
 </style>
