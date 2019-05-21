@@ -21,7 +21,7 @@
         <div class="card-stat">
           <div class="card-comment card-stat-item">
             <img class="card-icon" src="../assets/comment.png" alt="评论">
-            <span class="card-count">?</span>
+            <span class="card-count">{{countOfComments}}</span>
           </div>
           <div class="card-view card-stat-item">
             <img class="card-icon" src="../assets/view.png" alt="阅读">
@@ -51,7 +51,8 @@
       'viewCount',
       '_id',
       'like',
-      'createdAt'
+      'createdAt',
+      'countOfComments'
     ],
     data() {
       return {
