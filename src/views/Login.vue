@@ -4,6 +4,10 @@
     <div class="login-card envelope">
       <h4>登录以获取更多功能</h4>
       <div class="input-wrapper">
+        <span>
+          <span class="input-hint hint-error" v-show="!formatUsername">用户名长度6-20位</span>
+          <span class="input-hint hint-success" v-show="formatUsername">正确！</span>
+        </span>
         <input
           class="username login-input form-control"
           type="text"
@@ -15,6 +19,10 @@
       </span>
       </div>
       <div class="input-wrapper">
+        <span>
+          <span class="input-hint hint-error" v-show="!formatPassword">6-20位,由数字字母以及下划线组成</span>
+          <span class="input-hint hint-success" v-show="formatPassword">正确！</span>
+        </span>
         <input
           class="password login-input form-control"
           id="password"
@@ -53,7 +61,9 @@
         password: '',
         eyeOpen: require('../assets/eyeOpen.png'),
         eyeClose: require('../assets/eyeClose.png'),
-        isShow: true
+        isShow: true,
+        formatUsername: false,
+        formatPassword: false
       }
     },
     methods: {
@@ -90,6 +100,20 @@
         } else {
           this.isShow = !this.isShow
           document.getElementById('password').type = 'password'
+        }
+      }
+    },
+    watch: {
+      username() {
+        let len = this.username.split('').length
+        if (len > 5 && len < 21) {
+          this.formatUsername = true
+        }
+      },
+      password() {
+        let len = this.password.split('').length
+        if (len > 5 && len < 21) {
+          this.formatPassword = true
         }
       }
     },
@@ -132,6 +156,18 @@
     margin-left: -24px;
   }
 
+  .input-hint {
+    font-size: 0.8em;
+  }
+
+  .hint-success {
+    color: green;
+  }
+
+  .hint-error {
+    color: red;
+  }
+
   .input-do-btn {
     position: absolute;
     bottom: 0.75em;
@@ -148,7 +184,7 @@
   .envelope {
     /*width: 200px;*/
     /*height: 200px;*/
-    padding: 4em 2em;
+    padding: 4em 3em;
     border: 10px solid transparent;
     background: linear-gradient(white, white) padding-box,
     repeating-linear-gradient(-45deg, red 0, red 12.5%,
