@@ -28,23 +28,24 @@ function get(url) {
   }
 }
 
+// TODO 不加 headers 无法工作
 function like(id) {
   return axios({
     method: 'put',
     url: baseUrl + '/blog/like/' + id,
-    // todo 使用这个token为什么就可以了
-    // 如何使用token
-    headers: {
-      'x-csrf-token': 'eeDeM4Cnu_PjUxsFntPt8jMr'
-    }
-  }).then(res => {
+    // token会变
+    // headers: {
+    //   'x-csrf-token': 'tXY4TlCk8pIcaMlwb3n-y6zd'
+    // },
+    withCredentials: true
+  }).then((res) => {
     let { statusCode, msg } = res.data
-    if (statusCode === 1) {
+    if (statusCode !== 1) {
+      console.log('error')
+      return false
+    } else {
       console.log(msg)
       return msg
-    } else {
-      console.log('like error')
-      return statusCode
     }
   }).catch(() => {
     console.log('like error')
@@ -56,9 +57,9 @@ function register(username, password) {
     method: 'post',
     dataType: 'jsonp',
     url: baseUrl + '/registry/local',
-    headers: {
-      'x-csrf-token': 'f3WeUA9nX2Ep72Qeab91C9XR'
-    },
+    // headers: {
+    //   'x-csrf-token': 'f3WeUA9nX2Ep72Qeab91C9XR'
+    // },
     data: {
       username: username,
       password: password
@@ -66,10 +67,12 @@ function register(username, password) {
     withCredentials: true
   }).then((res) => {
     let { statusCode, data } = res.data
-    if (statusCode === 1) {
+    if (statusCode !== 1) {
+      return false
+    } else {
       console.log('register success')
       console.log(data)
-      return statusCode
+      return res.data
     }
   }).catch(() => {
     console.log('register error')
@@ -81,9 +84,9 @@ function login(username, password) {
     method: 'post',
     dataType: 'jsonp',
     url: baseUrl + '/auth/local',
-    headers: {
-      'x-csrf-token': 'f3WeUA9nX2Ep72Qeab91C9XR'
-    },
+    // headers: {
+    //   'x-csrf-token': 'f3WeUA9nX2Ep72Qeab91C9XR'
+    // },
     data: {
       username: username,
       password: password
@@ -91,10 +94,12 @@ function login(username, password) {
     withCredentials: true
   }).then((res) => {
     let { statusCode, data } = res.data
-    if (statusCode === 1) {
+    if (statusCode !== 1) {
+      return false
+    } else {
       console.log('login succeess')
       console.log(data)
-      return statusCode
+      return res.data
     }
   }).catch(() => {
     console.log('login error')
@@ -105,12 +110,13 @@ async function checkUser(name) {
   try {
     let res = await axios.get(baseUrl + '/user/check-username?username=' + name)
     res = res.data
-    if (res.statusCode === 1) {
-      // console.log(res.statusCode)
-      return res.statusCode
-    } else {
-      return 0
-    }
+    return res.statusCode === 1
+    // if (res.statusCode === 1) {
+    //   // console.log(res.statusCode)
+    //   return true
+    // } else {
+    //   return false
+    // }
   } catch (e) {
     console.log(e)
   }

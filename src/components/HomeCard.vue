@@ -77,19 +77,21 @@
       addLike() {
         like(this._id).then((res) => {
           // TODO
-          if (!isNaN(res)) {
+          if (!res) {
             Notification({
-              title: '失败',
+              title: 'fail',
               type: 'warning',
               message: res,
-              offset: 60
+              offset: 60,
+              duration: 2500
             })
           } else {
             Notification({
-              title: '结果',
+              title: 'result',
               message: res,
               type: 'info',
-              offset: 60
+              offset: 60,
+              duration: 2500
             })
             // this.like++
           }

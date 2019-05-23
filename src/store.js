@@ -8,7 +8,10 @@ export default new Vuex.Store({
   state: {
     blogList: [],
     categoryList: [],
-    tagList: []
+    tagList: [],
+    username: '',
+    avatar: '',
+    _id: ''
   },
   mutations: {
     getBloglist(state, list) {
@@ -19,6 +22,9 @@ export default new Vuex.Store({
     },
     getTagList(state, list) {
       state.tagList = list
+    },
+    userInfo(state, payload) {
+      Object.assign(state, payload)
     }
   },
   actions: {
@@ -33,6 +39,9 @@ export default new Vuex.Store({
     async getTagList({ commit }) {
       const list = await getTag()
       commit('getTagList', list)
+    },
+    userInfo({ commit }, payload) {
+      commit('userInfo', payload)
     }
   }
 })

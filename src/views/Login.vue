@@ -50,6 +50,7 @@
 </template>
 <script>
   import { checkUser, register, login } from '../api/api'
+  import { Notification } from 'element-ui'
 
   export default {
     name: 'login',
@@ -64,24 +65,51 @@
         formatPassword: false
       }
     },
+    mounted() {
+      Notification({
+        title: '注意',
+        message: '未注册用户直接注册登录嗷',
+        type: 'warning',
+        offset: 40
+      })
+    },
     methods: {
       // 对注册的账号密码有要求
       async login() {
         console.log(this.username + '+' + this.password)
         const isExist = await checkUser(this.username)
         // console.log(isExist)
-        if (isExist === 1) {
+        if (isExist) {
           console.log('已经注册了')
           let ret = await login(this.username, this.password)
-          if (ret === 1) {
-            console.log('登录成功')
-          } else {
+          if (!ret) {
             console.log('登录失败')
+          } else {
+            console.log('登录成功')
+            // add to localStorage
+            this.$store.dispatch('userInfo', {
+              username: ret.data.username,
+              avatar: ret.data.avatar,
+              _id: ret.data._id
+            })
+            localStorage.setItem('username', ret.data.username)
+            localStorage.setItem('avatar', ret.data.avatar)
+            localStorage.setItem('_id', ret.data._id)
+            const that = this
+            setTimeout(() => {
+              that.$router.push({ path: '/' })
+            }, 2000)
           }
         } else {
           console.log('未注册')
           let ret = await register(this.username, this.password)
           console.log(ret)
+          Notification({
+            title: '注册成功',
+            message: '再点一下蓝色按钮按钮登录嗷',
+            type: 'success',
+            offset: 40
+          })
         }
       },
       cancelInput() {
