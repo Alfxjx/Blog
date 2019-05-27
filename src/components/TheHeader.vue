@@ -2,9 +2,9 @@
   <div id="the-header">
     <div class="header-side header-left">
       <!--<img src="../assets/logo.png" width="64" height="18" alt="logo" @click="goTo(home)">-->
-      <span @click="goTo(home)">我的博客</span>
-      <div class="header-btn" @click="goTo(archive)">{{btn1}}</div>
-      <div class="header-btn" @click="goTo(about)">{{btn2}}</div>
+      <span @click="goTo('home')">我的博客</span>
+      <div class="header-btn" @click="goTo('archive')">{{btn1}}</div>
+      <div class="header-btn" @click="goTo('about')">{{btn2}}</div>
       <div class="header-btn round-btn">
         <img
           src="../assets/add.png"
@@ -12,7 +12,7 @@
           height="20"
           alt="add"
           title="add new"
-          @click="goTo(add)"
+          @click="goTo('add')"
         >
       </div>
     </div>
@@ -34,7 +34,7 @@
           height="20"
           alt="admin"
           title="admin"
-          @click="goTo(admin)"
+          @click="goTo('admin')"
         >
       </div>
     </div>
@@ -45,12 +45,7 @@
     data() {
       return {
         btn1: '归档',
-        btn2: '关于',
-        home: 'home',
-        archive: 'archive',
-        about: 'about',
-        add: 'add',
-        admin: 'admin'
+        btn2: '关于'
       }
     },
     methods: {

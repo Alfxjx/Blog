@@ -27,7 +27,7 @@
             <img class="card-icon" src="../assets/view.png" alt="阅读">
             <span class="card-count">{{viewCount}}</span>
           </div>
-          <div class="card-like card-stat-item" @click="addLike">
+          <div class="card-like card-stat-item" @click="addLike(_id)">
             <img class="card-icon" src="../assets/like.png" alt="喜欢">
             <span class="card-count">{{like}}</span>
           </div>
@@ -37,7 +37,7 @@
   </div>
 </template>
 <script>
-  import { like } from '../api/api'
+  import { generalRequest } from '../api/api'
   import { Notification } from 'element-ui'
 
   export default {
@@ -74,28 +74,27 @@
         console.log(this._id)
         this.$router.push('/blog/' + this._id)
       },
-      addLike() {
-        like(this._id).then((res) => {
-          // TODO
-          if (!res) {
-            Notification({
-              title: 'fail',
-              type: 'warning',
-              message: res,
-              offset: 60,
-              duration: 2500
-            })
-          } else {
-            Notification({
-              title: 'result',
-              message: res,
-              type: 'info',
-              offset: 60,
-              duration: 2500
-            })
-            // this.like++
-          }
-        })
+      async addLike(id) {
+        // 使用generalRequest
+        const like = await generalRequest('/blog/like/' + id, 'put')
+        console.log(like)
+        if (!like) {
+          Notification({
+            title: 'fail',
+            type: 'warning',
+            message: like.msg,
+            offset: 60,
+            duration: 2500
+          })
+        } else {
+          Notification({
+            title: 'result',
+            message: like.msg,
+            type: 'info',
+            offset: 60,
+            duration: 2500
+          })
+        }
       }
     }
   }

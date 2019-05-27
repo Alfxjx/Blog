@@ -142,6 +142,7 @@ const axiosBaseConfig = {
   transformRequest: [(data, headers) => {
     // 加入token？
     const token = getCookie('csrfToken')
+    console.log(token)
     if (token) {
       headers['x-csrf-token'] = token
     }
@@ -168,7 +169,8 @@ function getCookie(cName) {
       cStart = cStart + cName.length + 1
       let cEnd = document.cookie.indexOf(';', cStart)
       if (cEnd === -1) cEnd = document.cookie.length
-      return unescape(document.cookie.substring(cStart, cEnd))
+      // return unescape(document.cookie.substring(cStart, cEnd))
+      return document.cookie.substring(cStart, cEnd)
     }
   }
   return ''

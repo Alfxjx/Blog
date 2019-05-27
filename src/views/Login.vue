@@ -74,6 +74,7 @@
       })
     },
     methods: {
+      // TODO 使用generalRequest
       // 对注册的账号密码有要求
       async login() {
         console.log(this.username + '+' + this.password)
