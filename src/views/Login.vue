@@ -49,7 +49,7 @@
   </div>
 </template>
 <script>
-  import { checkUser, register, login } from '../api/api'
+  import { checkUser, generalRequest } from '../api/api'
   import { Notification } from 'element-ui'
 
   export default {
@@ -74,7 +74,7 @@
       })
     },
     methods: {
-      // TODO 使用generalRequest
+      // 使用generalRequest
       // 对注册的账号密码有要求
       async login() {
         console.log(this.username + '+' + this.password)
@@ -82,7 +82,10 @@
         // console.log(isExist)
         if (isExist) {
           console.log('已经注册了')
-          let ret = await login(this.username, this.password)
+          let ret = await generalRequest('/auth/local', 'post', {
+            username: this.username,
+            password: this.password
+          })
           if (!ret) {
             console.log('登录失败')
           } else {
@@ -103,7 +106,11 @@
           }
         } else {
           console.log('未注册')
-          let ret = await register(this.username, this.password)
+          // TODO 切换账号 token不变
+          let ret = await generalRequest('/registry/local', 'post', {
+            username: this.username,
+            password: this.password
+          })
           console.log(ret)
           Notification({
             title: '注册成功',
