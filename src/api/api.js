@@ -28,83 +28,83 @@ function get(url) {
   }
 }
 
-// TODO 不加 headers 无法工作
-function like(id) {
-  return axios({
-    method: 'put',
-    url: baseUrl + '/blog/like/' + id,
-    // token会变
-    // headers: {
-    //   'x-csrf-token': 'tXY4TlCk8pIcaMlwb3n-y6zd'
-    // },
-    withCredentials: true
-  }).then((res) => {
-    let { statusCode, msg } = res.data
-    if (statusCode !== 1) {
-      console.log('error')
-      return false
-    } else {
-      console.log(msg)
-      return msg
-    }
-  }).catch(() => {
-    console.log('like error')
-  })
-}
+// 不加 headers 无法工作
+// function like(id) {
+//   return axios({
+//     method: 'put',
+//     url: baseUrl + '/blog/like/' + id,
+//     // token会变
+//     // headers: {
+//     //   'x-csrf-token': 'tXY4TlCk8pIcaMlwb3n-y6zd'
+//     // },
+//     withCredentials: true
+//   }).then((res) => {
+//     let { statusCode, msg } = res.data
+//     if (statusCode !== 1) {
+//       console.log('error')
+//       return false
+//     } else {
+//       console.log(msg)
+//       return msg
+//     }
+//   }).catch(() => {
+//     console.log('like error')
+//   })
+// }
 
-function register(username, password) {
-  return axios({
-    method: 'post',
-    dataType: 'jsonp',
-    url: baseUrl + '/registry/local',
-    // headers: {
-    //   'x-csrf-token': 'f3WeUA9nX2Ep72Qeab91C9XR'
-    // },
-    data: {
-      username: username,
-      password: password
-    },
-    withCredentials: true
-  }).then((res) => {
-    let { statusCode, data } = res.data
-    if (statusCode !== 1) {
-      return false
-    } else {
-      console.log('register success')
-      console.log(data)
-      return res.data
-    }
-  }).catch(() => {
-    console.log('register error')
-  })
-}
+// function register(username, password) {
+//   return axios({
+//     method: 'post',
+//     dataType: 'jsonp',
+//     url: baseUrl + '/registry/local',
+//     // headers: {
+//     //   'x-csrf-token': 'f3WeUA9nX2Ep72Qeab91C9XR'
+//     // },
+//     data: {
+//       username: username,
+//       password: password
+//     },
+//     withCredentials: true
+//   }).then((res) => {
+//     let { statusCode, data } = res.data
+//     if (statusCode !== 1) {
+//       return false
+//     } else {
+//       console.log('register success')
+//       console.log(data)
+//       return res.data
+//     }
+//   }).catch(() => {
+//     console.log('register error')
+//   })
+// }
 
-function login(username, password) {
-  return axios({
-    method: 'post',
-    dataType: 'jsonp',
-    url: baseUrl + '/auth/local',
-    // headers: {
-    //   'x-csrf-token': 'f3WeUA9nX2Ep72Qeab91C9XR'
-    // },
-    data: {
-      username: username,
-      password: password
-    },
-    withCredentials: true
-  }).then((res) => {
-    let { statusCode, data } = res.data
-    if (statusCode !== 1) {
-      return false
-    } else {
-      console.log('login succeess')
-      console.log(data)
-      return res.data
-    }
-  }).catch(() => {
-    console.log('login error')
-  })
-}
+// function login(username, password) {
+//   return axios({
+//     method: 'post',
+//     dataType: 'jsonp',
+//     url: baseUrl + '/auth/local',
+//     // headers: {
+//     //   'x-csrf-token': 'f3WeUA9nX2Ep72Qeab91C9XR'
+//     // },
+//     data: {
+//       username: username,
+//       password: password
+//     },
+//     withCredentials: true
+//   }).then((res) => {
+//     let { statusCode, data } = res.data
+//     if (statusCode !== 1) {
+//       return false
+//     } else {
+//       console.log('login succeess')
+//       console.log(data)
+//       return res.data
+//     }
+//   }).catch(() => {
+//     console.log('login error')
+//   })
+// }
 
 async function checkUser(name) {
   try {
@@ -117,6 +117,18 @@ async function checkUser(name) {
     // } else {
     //   return false
     // }
+  } catch (e) {
+    console.log(e)
+  }
+}
+
+async function top(load) {
+  try {
+    // TODO
+    let res = await axios.get(baseUrl + '/blog-top?sort[]=' + load.sort + '&sortBy[]=' + load.sortBy + '&size=' + load.size)
+    res = res.data
+    // 这样才是返回data的内容
+    return res.data
   } catch (e) {
     console.log(e)
   }
@@ -205,4 +217,4 @@ export async function generalRequest(url, method, params) {
 const getList = get('/blog')
 const getCategory = get('/blog-category')
 const getTag = get('/blog-tags')
-export { get, like, getList, getCategory, getTag, register, checkUser, login }
+export { get, getList, getCategory, getTag, checkUser, top }

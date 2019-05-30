@@ -1,12 +1,15 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { getCategory, getList, getTag } from './api/api.js'
+import { getCategory, getList, getTag, top } from './api/api.js'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
     blogList: [],
+    topCount: [],
+    topLike: [],
+    topComment: [],
     categoryList: [],
     tagList: [],
     username: '',
@@ -14,8 +17,17 @@ export default new Vuex.Store({
     _id: ''
   },
   mutations: {
-    getBloglist(state, list) {
+    getBlogList(state, list) {
       state.blogList = list
+    },
+    getTopCount(state, list) {
+      state.topCount = list
+    },
+    getTopLike(state, list) {
+      state.topLike = list
+    },
+    getTopComment(state, list) {
+      state.topComment = list
     },
     getCategoryList(state, list) {
       state.categoryList = list
@@ -30,7 +42,20 @@ export default new Vuex.Store({
   actions: {
     async getBlogList({ commit }) {
       const list = await getList()
-      commit('getBloglist', list)
+      commit('getBlogList', list)
+    },
+    // TODO
+    async getTopCount({ commit }, payload) {
+      const list = await top(payload)
+      commit('getTopCount', list)
+    },
+    async getTopLike({ commit }, payload) {
+      const list = await top(payload)
+      commit('getTopLike', list)
+    },
+    async getTopComment({ commit }, payload) {
+      const list = await top(payload)
+      commit('getTopComment', list)
     },
     async getCategoryList({ commit }) {
       const list = await getCategory()
