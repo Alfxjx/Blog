@@ -9,11 +9,11 @@
         </li>
         <li class="with-text">
           <img class="social-link-logo" src="../assets/phone.png" alt="phone">
-          <span class="social-text">123########</span>
+          <span class="social-text">{{tel}}</span>
         </li>
         <li class="with-text">
           <img class="social-link-logo" src="../assets/mail.png" alt="mail">
-          <span class="social-text">1321@111.cn</span>
+          <span class="social-text">{{mail}}</span>
         </li>
       </ul>
       <!-- <img class="qrcode-pic" src="../assets/qrcode.jpg" alt="二维码"/>                  -->
@@ -35,10 +35,12 @@
   export default {
     data() {
       return {
+        tel: '18961207621',
+        mail: 'xjxtju@163.com',
         links: [
           {
             name: 'github',
-            links: '#',
+            links: 'https://github.com/Alfxjx',
             src: require('../assets/logo-github.png')
           },
           { name: 'twitter', links: '#', src: require('../assets/twitter.png') },
@@ -47,7 +49,11 @@
             links: '#',
             src: require('../assets/logo-reddit.png')
           },
-          { name: 'zhihu', links: '#', src: require('../assets/zhihu.png') }
+          {
+            name: 'zhihu',
+            links: 'https://www.zhihu.com/people/bo-mo-wu-hen/activities',
+            src: require('../assets/zhihu.png')
+          }
         ]
       }
     }
@@ -59,8 +65,8 @@
     flex: 0;
     width: 100%;
     margin-top: 3em;
-    padding: 1em 0;
-    height: 4em;
+    padding: 2em 0;
+    height: 6em;
     display: flex;
     flex-direction: column;
     background: #22658c;
@@ -99,6 +105,7 @@
   .social-link-logo {
     width: 1.2em;
     height: 1.2em;
+    margin-right: 0.5em;
   }
 
   .with-text {

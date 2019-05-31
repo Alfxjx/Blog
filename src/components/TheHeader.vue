@@ -1,11 +1,11 @@
 <template>
   <div id="the-header">
-    <div class="header-side header-left">
+    <div class="the-header-side the-header-left">
       <!--<img src="../assets/logo.png" width="64" height="18" alt="logo" @click="goTo(home)">-->
       <span @click="goTo('home')">我的博客</span>
-      <div class="header-btn" @click="goTo('archive')">{{btn1}}</div>
-      <div class="header-btn" @click="goTo('about')">{{btn2}}</div>
-      <div class="header-btn round-btn">
+      <div class="the-header-btn" @click="goTo('archive')">{{btn1}}</div>
+      <div class="the-header-btn" @click="goTo('about')">{{btn2}}</div>
+      <div class="the-header-btn the-round-btn">
         <img
           src="../assets/add.png"
           width="20"
@@ -16,8 +16,8 @@
         >
       </div>
     </div>
-    <div class="header-side header-right">
-      <div class="header-btn round-btn">
+    <div class="the-header-side the-header-right">
+      <div class="the-header-btn the-round-btn">
         <img
           src="../assets/man.png"
           width="20"
@@ -27,7 +27,7 @@
           @click="goTo('login')"
         >
       </div>
-      <div class="header-btn round-btn">
+      <div class="the-header-btn the-round-btn">
         <img
           src="../assets/setting.png"
           width="20"
@@ -71,12 +71,12 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    height: 3em;
+    height: 4em;
     padding-top: 1em;
     color: #000;
   }
 
-  .header-side {
+  .the-header-side {
     position: relative;
     display: flex;
     flex-direction: row;
@@ -85,36 +85,36 @@
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.06);
   }
 
-  .header-left {
+  .the-header-left {
     flex: 0 0 250px;
     padding-left: 1em;
   }
 
-  .header-right {
+  .the-header-right {
     flex: 0 0 150px;
   }
 
   @media screen and (max-width: 700px) {
-    .header-left {
+    .the-header-left {
       flex: 0 0 220px;
       padding-left: 10px;
     }
 
-    .header-right {
+    .the-header-right {
       flex: 0 0 80px;
     }
   }
 
-  .header-right:first-child {
+  .the-header-right:first-child {
     margin-left: 1em;
   }
 
-  .header-btn {
+  .the-header-btn {
     padding: 0.2em 0.6em;
     font-weight: 700;
   }
 
-  .round-btn {
+  .the-round-btn {
     margin-top: 0.3em;
   }
 </style>

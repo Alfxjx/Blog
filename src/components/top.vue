@@ -1,7 +1,7 @@
 <template>
   <div class="top-wrapper" v-show="showTop" @click="toTop">
     <div class="top-icon">
-      <img class="icom-img" src="../assets/top.png" alt="top">
+      <img class="icon-img" src="../assets/top.png" alt="top">
     </div>
   </div>
 </template>
@@ -66,18 +66,18 @@ export default {
 .top-icon {
   background: white;
   border-radius: 50%;
-  padding: 0.5em;
+  padding: 0.5em 0.7em;
   box-shadow: 0 3px 2px 2px rgba(121, 121, 121, 0.26);
 }
 
-.icom-img {
+.icon-img {
   width: 1.3em;
   height: 1.3em;
 }
 
 .top-wrapper {
   position: fixed;
-  bottom: 75px;
+  bottom: 95px;
   right: 45px;
   z-index: 20;
 }

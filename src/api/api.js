@@ -124,7 +124,6 @@ async function checkUser(name) {
 
 async function top(load) {
   try {
-    // TODO
     let res = await axios.get(baseUrl + '/blog-top?sort[]=' + load.sort + '&sortBy[]=' + load.sortBy + '&size=' + load.size)
     res = res.data
     // 这样才是返回data的内容

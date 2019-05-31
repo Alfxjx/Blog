@@ -7,10 +7,11 @@ import Login from './views/Login.vue'
 import AdminEdit from './views/AdminEdit.vue'
 import About from './views/About.vue'
 import AddBlog from './views/AddBlog'
+// const Archive = () => import('./views/Archive.vue')
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
@@ -43,14 +44,20 @@ export default new Router({
       component: AdminEdit
     },
     {
-      name:'about',
-      path:'/about',
+      name: 'about',
+      path: '/about',
       component: About
     },
     {
-      name:'add',
-      path:'/add',
-      component:AddBlog
+      name: 'add',
+      path: '/add',
+      component: AddBlog
     }
   ]
 })
+
+// router.beforeEach((to, from, next) => {
+//   // TODO 路由守卫 学一下
+// })
+
+export default router

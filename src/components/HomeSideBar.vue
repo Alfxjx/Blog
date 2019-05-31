@@ -19,34 +19,42 @@
       </select>
     </div>
     <ul class="rank-list" v-if="selected === 'view'">
-      <!--TODO-->
       <li
+        @click="goTo(item._id)"
         class="rank-list-item"
         v-for="(item,indexCount) in topCount"
         :key="indexCount"
-      >{{++indexCount}} {{item.title}}
+      >
+        <span>{{++indexCount}} {{item.title}}</span>
+        <span class="rank-list-item-number">{{item.blogInfo.viewCount}}次</span>
       </li>
     </ul>
     <ul class="rank-list" v-else-if="selected === 'like'">
       <li
+        @click="goTo(item._id)"
         class="rank-list-item"
         v-for="(item,indexLike) in topLike"
         :key="indexLike"
-      >{{++indexLike}} {{item.title}}
+      >
+        <span>{{++indexLike}} {{item.title}}</span>
+        <span class="rank-list-item-number">{{item.blogInfo.likes}}次</span>
       </li>
     </ul>
     <ul class="rank-list" v-else-if="selected === 'comment'">
       <li
+        @click="goTo(item._id)"
         class="rank-list-item"
         v-for="(item,indexComment) in topComment"
         :key="indexComment"
-      >{{++indexComment}} {{item.title}}
+      >
+        <span>{{++indexComment}} {{item.title}}</span>
+        <span class="rank-list-item-number">{{item.countOfComments}}条</span>
       </li>
     </ul>
   </div>
 </template>
 <script>
-  // TODO 断点设置在960px
+  // 断点设置在960px
   export default {
     data() {
       return {
@@ -95,6 +103,9 @@
           sortBy: ['desc'],
           size: 5
         })
+      },
+      goTo(id) {
+        this.$router.push('/blog/' + id)
       }
     }
   }
@@ -154,16 +165,34 @@
   .rank-list-item {
     margin: 0.5em 1em 0.5em 0em;
     padding-left: 0.5em;
+    position: relative;
   }
-  .rank-list-item:hover{
+
+  .rank-list-item > span {
+    overflow: hidden;
+  }
+
+  .rank-list-item:hover {
     color: #22658c;
     border-left: 2px solid #22658c;
   }
+
+  .rank-list-item-number {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
   .rank-list-sort {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding: 0.5em 0;
+    font-size: 0.8em;
+  }
+
+  .rank-sort-select {
+    height: 2.5em;
   }
 
   .rank-logo {

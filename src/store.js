@@ -44,7 +44,6 @@ export default new Vuex.Store({
       const list = await getList()
       commit('getBlogList', list)
     },
-    // TODO
     async getTopCount({ commit }, payload) {
       const list = await top(payload)
       commit('getTopCount', list)
