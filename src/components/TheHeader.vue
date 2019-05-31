@@ -6,36 +6,40 @@
       <div class="the-header-btn" @click="goTo('archive')">{{btn1}}</div>
       <div class="the-header-btn" @click="goTo('about')">{{btn2}}</div>
       <div class="the-header-btn the-round-btn">
-        <img
-          src="../assets/add.png"
-          width="20"
-          height="20"
-          alt="add"
-          title="add new"
-          @click="goTo('add')"
-        >
+        <font-awesome-icon :icon="['fas','plus-circle']" @click="goTo('add')"/>
+        <!--<img-->
+          <!--src="../assets/add.png"-->
+          <!--width="20"-->
+          <!--height="20"-->
+          <!--alt="add"-->
+          <!--title="add new"-->
+          <!--@click="goTo('add')"-->
+        <!--&gt;-->
       </div>
     </div>
     <div class="the-header-side the-header-right">
       <div class="the-header-btn the-round-btn">
-        <img
-          src="../assets/man.png"
-          width="20"
-          height="20"
-          alt="login"
-          title="login"
-          @click="goTo('login')"
-        >
+        <!--TODO-->
+        <font-awesome-icon :icon="['fas','user']" @click="goTo('login')"/>
+        <!--<img-->
+          <!--src="../assets/man.png"-->
+          <!--width="20"-->
+          <!--height="20"-->
+          <!--alt="login"-->
+          <!--title="login"-->
+          <!--@click="goTo('login')"-->
+        <!--&gt;-->
       </div>
       <div class="the-header-btn the-round-btn">
-        <img
-          src="../assets/setting.png"
-          width="20"
-          height="20"
-          alt="admin"
-          title="admin"
-          @click="goTo('admin')"
-        >
+        <font-awesome-icon :icon="['fas','sliders-h']" @click="goTo('admin')"/>
+        <!--<img-->
+          <!--src="../assets/setting.png"-->
+          <!--width="20"-->
+          <!--height="20"-->
+          <!--alt="admin"-->
+          <!--title="admin"-->
+          <!--@click="goTo('admin')"-->
+        <!--&gt;-->
       </div>
     </div>
   </div>
@@ -115,6 +119,6 @@
   }
 
   .the-round-btn {
-    margin-top: 0.3em;
+    margin-top: 0em;
   }
 </style>

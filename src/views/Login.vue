@@ -96,6 +96,7 @@
               avatar: ret.data.avatar,
               _id: ret.data._id
             })
+            this.$store.commit('login')
             localStorage.setItem('username', ret.data.username)
             localStorage.setItem('avatar', ret.data.avatar)
             localStorage.setItem('_id', ret.data._id)

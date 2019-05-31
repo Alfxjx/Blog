@@ -8,10 +8,12 @@
           </a>
         </li>
         <li class="with-text">
+          <!--<font-awesome-icon :icon="['fas','phone']"/>-->
           <img class="social-link-logo" src="../assets/phone.png" alt="phone">
           <span class="social-text">{{tel}}</span>
         </li>
         <li class="with-text">
+          <!--<font-awesome-icon :icon="['fas','envelope']"/>-->
           <img class="social-link-logo" src="../assets/mail.png" alt="mail">
           <span class="social-text">{{mail}}</span>
         </li>

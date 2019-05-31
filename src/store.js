@@ -14,7 +14,8 @@ export default new Vuex.Store({
     tagList: [],
     username: '',
     avatar: '',
-    _id: ''
+    _id: '',
+    isLogin: false
   },
   mutations: {
     getBlogList(state, list) {
@@ -37,6 +38,9 @@ export default new Vuex.Store({
     },
     userInfo(state, payload) {
       Object.assign(state, payload)
+    },
+    login(state) {
+      state.isLogin = true
     }
   },
   actions: {

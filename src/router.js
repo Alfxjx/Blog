@@ -7,6 +7,7 @@ import Login from './views/Login.vue'
 import AdminEdit from './views/AdminEdit.vue'
 import About from './views/About.vue'
 import AddBlog from './views/AddBlog'
+import store from './store'
 // const Archive = () => import('./views/Archive.vue')
 
 Vue.use(Router)
@@ -56,8 +57,18 @@ const router = new Router({
   ]
 })
 
-// router.beforeEach((to, from, next) => {
-//   // TODO 路由守卫 学一下
-// })
+router.beforeEach((to, from, next) => {
+  // 路由守卫
+  const nextRoute = ['add', 'admin']
+  let isLogin = store.state.isLogin
+  if (nextRoute.indexOf(to.name) >= 0) {
+    if (!isLogin) {
+      // 设置router.push 会在跳转到admin/add的时候
+      // 再跳转另外一个就跳过守卫了
+      return next({ name: 'login' })
+    }
+  }
+  next()
+})
 
 export default router
