@@ -3,8 +3,8 @@
     <div class="side-about">
       <img class="side-avatar" src="../assets/pl.jpg" alt="avatar">
       <div class="about-detail">
-        <span class="about-name">薄墨无痕</span>
-        <span class="about-desc">薄墨无痕薄墨无痕薄墨无痕</span>
+        <span class="about-name">你好，朋友。</span>
+        <span class="about-desc">清风不知事，薄墨亦有痕</span>
       </div>
     </div>
     <div class="rank-list-sort">
