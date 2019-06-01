@@ -100,10 +100,10 @@
             localStorage.setItem('username', ret.data.username)
             localStorage.setItem('avatar', ret.data.avatar)
             localStorage.setItem('_id', ret.data._id)
-            const that = this
-            setTimeout(() => {
-              that.$router.push({ path: '/' })
-            }, 2000)
+            // const that = this
+            // setTimeout(() => {
+            //   that.$router.push({ path: '/' })
+            // }, 2000)
           }
         } else {
           console.log('未注册')

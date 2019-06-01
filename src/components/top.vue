@@ -77,7 +77,7 @@ export default {
 
 .top-wrapper {
   position: fixed;
-  bottom: 95px;
+  bottom: 60px;
   right: 45px;
   z-index: 20;
 }

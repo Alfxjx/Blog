@@ -67,8 +67,8 @@
     flex: 0;
     width: 100%;
     margin-top: 3em;
-    padding: 2em 0;
-    height: 6em;
+    padding: 1.5em 0;
+    height: 5em;
     display: flex;
     flex-direction: column;
     background: #22658c;

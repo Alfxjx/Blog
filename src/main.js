@@ -9,6 +9,10 @@ import './element'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon, FontAwesomeLayers, FontAwesomeLayersText } from '@fortawesome/vue-fontawesome'
+import mavonEditor from 'mavon-editor'
+import 'mavon-editor/dist/css/index.css'
+
+Vue.use(mavonEditor)
 
 library.add(fas)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
