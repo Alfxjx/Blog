@@ -57,6 +57,10 @@
     flex: 1;
   }
 
+  .about-placeholder {
+    color: transparent;
+  }
+
   .about-main {
     display: flex;
     flex-direction: column;

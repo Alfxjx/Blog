@@ -25,6 +25,10 @@
     min-height: 100vh;
   }
 
+  .admin-placeholder {
+    color: transparent;
+  }
+
   .admin-main {
     flex: 1;
   }
