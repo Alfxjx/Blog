@@ -64,18 +64,7 @@
           />
         </div>
       </div>
-      <div class="add-blog-img">
-        <!--todo 设置插入图片，可以选择为文章第一个图-->
-        <!--<button-->
-        <!--type="button"-->
-        <!--class="btn btn-default btn-sm"-->
-        <!--@click="submitImg"-->
-        <!--&gt;-->
-        <!--上传题图-->
-        <!--</button>-->
-        <!--<input type="radio" id="radio1">-->
-        <!--<label>使用文章中的图片作为题图</label>-->
-      </div>
+      <add-pic></add-pic>
       <div class="add-blog-content">
         <mavon-editor
           v-model="content"
@@ -100,6 +89,7 @@
 <script type="text/ecmascript-6">
   import TheFooter from '../components/TheFooter'
   import top from '../components/top'
+  import addPic from '../components/addPic'
   import { Notification, Message } from 'element-ui'
   import { generalRequest } from '../api/api'
 
@@ -154,7 +144,7 @@
       }
     },
     components: {
-      TheFooter, top
+      TheFooter, top, addPic
     }
   }
 </script>
@@ -219,6 +209,6 @@
   }
 
   .submit-blog {
-    margin-top: 1em;
+    margin: 1em auto 0;
   }
 </style>
