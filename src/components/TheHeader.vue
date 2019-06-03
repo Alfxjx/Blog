@@ -19,7 +19,6 @@
     </div>
     <div class="the-header-side the-header-right">
       <div class="the-header-btn the-round-btn">
-        <!--TODO-->
         <font-awesome-icon :icon="['fas','user']" @click="goTo('login')"/>
         <!--<img-->
           <!--src="../assets/man.png"-->
