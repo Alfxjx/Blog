@@ -65,7 +65,19 @@ router.beforeEach((to, from, next) => {
     if (!isLogin) {
       // 设置router.push 会在跳转到admin/add的时候
       // 再跳转另外一个就跳过守卫了
-      return next({ name: 'login' })
+      next({
+        // TODO 设置登录之后的重定向
+        // query: { redirect: to.fullPath },
+        name: 'login'
+      })
+    } else {
+      next()
+    }
+  }
+  if (to.name === 'login') {
+    if (isLogin) {
+      console.log('is login')
+      router.push('/home')
     }
   }
   next()
