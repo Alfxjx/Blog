@@ -133,11 +133,31 @@ async function top(load) {
   }
 }
 
+export async function uploadImg(formData) {
+  const token = getCookie('csrfToken')
+  let res = await axios({
+    url: baseUrl + '/upload-image',
+    method: 'post',
+    data: formData,
+    headers: {
+      'Contemt-Type': 'multipart/form-data',
+      'x-csrf-token': token
+    }
+  })
+  console.log(res)
+  const { statusCode } = res.data
+  if (statusCode !== 1) {
+    return res.msg
+  } else {
+    return res.data
+  }
+}
+
 // axios配置
 const axiosBaseConfig = {
   // baseURL: prefix,
   timeout: 10000,
-  // headers: { 'Content-Type': 'appliction/json' },
+  // headers: { 'Content-Type': 'multipart/*' },
 
   // 跨域请求，是否带上认证信息
   withCredentials: true, // default

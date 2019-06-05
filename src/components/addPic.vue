@@ -5,22 +5,25 @@
     <input type="file" class="file-add" id="file" ref="file" @change="showFile"/>
     <span class="pic-name" id="aim">{{picNameAdded}}</span>
     <!--TODO 需要添加删除栏-->
-    <button class="add-btn btn btn-default" @click="uploadPic">上传图片</button>
+    <button class="add-btn btn btn-default" @click="uploadPic()">上传图片</button>
     <span class="pic-name">{{mdName}}</span>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
+  import { uploadImg } from '../api/api'
+
   export default {
     name: 'addPic',
     data: () => {
       return {
-        picNameAdded: 'unknown'
+        picNameAdded: 'Picture',
+        picLink: 'Link'
       }
     },
     computed: {
       mdName() {
-        return `![${this.picNameAdded}](link)`
+        return `![${this.picNameAdded}](${this.picLink})`
       }
     },
     methods: {
@@ -34,7 +37,16 @@
         this.picNameAdded = out[0].name
         // console.log(out)
       },
-      uploadPic() {
+      async uploadPic() {
+        const $file = document.getElementById('file').files[0]
+        const formData = new FormData()
+        formData.append('image', $file)
+        let res = await uploadImg(formData)
+        if (!res) {
+          console.log(res.msg)
+        } else {
+          this.picLink = res.data
+        }
       }
     }
   }
