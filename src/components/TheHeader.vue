@@ -44,6 +44,8 @@
   </div>
 </template>
 <script>
+  import { MessageBox } from 'element-ui'
+
   export default {
     data() {
       return {
@@ -55,13 +57,20 @@
       goTo(url) {
         this.$router.push('/' + url)
       },
+      logout() {
+        // 取消登录
+        this.$store.commit('logout')
+        localStorage.removeItem('username')
+        localStorage.removeItem('avatar')
+        localStorage.removeItem('_id')
+      },
       handleGoTo(url) {
         let isLogin = this.$store.state.isLogin
         if (!isLogin) {
           this.goTo(url)
         } else {
-          console.log('exit')
-          // TODO 取消登录
+          // TODO
+          MessageBox.confirm('提示', {})
         }
       }
     }
