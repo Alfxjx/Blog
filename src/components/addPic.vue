@@ -1,11 +1,17 @@
 <template>
   <div class="add-blog-img">
     <!--todo 设置插入图片，可以选择为文章第一个图-->
-    <button class="add-btn btn btn-default" @click="chooseFile">添加图片</button>
+    <button class="add-btn btn btn-default" @click="chooseFile">
+      <span style="color: red">* </span>
+      添加图片
+    </button>
     <input type="file" class="file-add" id="file" ref="file" @change="showFile"/>
     <span class="pic-name" id="aim">{{picNameAdded}}</span>
     <!--TODO 需要添加删除栏-->
-    <button class="add-btn btn btn-default" @click="uploadPic()">上传图片</button>
+    <button class="add-btn btn btn-default" @click="uploadPic()">
+      <span style="color: red">* </span>
+      上传图片
+    </button>
     <span class="pic-name">{{mdName}}</span>
   </div>
 </template>
@@ -47,6 +53,7 @@
         } else {
           this.picLink = res.data
         }
+        this.$emit('listenLink', res.data)
       }
     }
   }

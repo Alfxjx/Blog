@@ -8,6 +8,7 @@
             class="input-group-addon"
             id="basic-addon1"
           >
+            <span style="color: red">* </span>
             标题
           </span>
           <input
@@ -23,6 +24,7 @@
             class="input-group-addon"
             id="basic-addon2"
           >
+            <span style="color: red">* </span>
             分类
           </span>
           <input
@@ -38,6 +40,7 @@
             class="input-group-addon"
             id="basic-addon3"
           >
+            <span style="color: red">* </span>
             标签
           </span>
           <input
@@ -53,6 +56,7 @@
             class="input-group-addon"
             id="basic-addon4"
           >
+            <span style="color: red">* </span>
             描述
           </span>
           <input
@@ -64,7 +68,7 @@
           />
         </div>
       </div>
-      <add-pic></add-pic>
+      <add-pic @listenLink="transUploadImgLink"></add-pic>
       <div class="add-blog-content">
         <mavon-editor
           v-model="content"
@@ -102,7 +106,7 @@
         title: '',
         tags: '',
         desc: '',
-        content: '',
+        content: '#开始编辑',
         imgUpload: '',
         tb: {
           bold: true, // 粗体
@@ -163,7 +167,7 @@
     methods: {
       async submitBlog() {
         // TODO
-        let res = await generalRequest('/blog', 'post', {
+        let post = await generalRequest('/blog', 'post', {
           title: this.title,
           author: this.author,
           category: this.category,
@@ -172,12 +176,25 @@
           image: this.imgUpload,
           content: this.content
         })
-        Notification({
-          title: '创建博客成功',
-          message: '即将回到首页',
-          type: 'success',
-          duration: 1000
-        })
+        if (!post) {
+          Notification({
+            title: '创建失败',
+            message: post.msg,
+            type: 'fail',
+            duration: 1000
+          })
+        } else {
+          Notification({
+            title: '创建博客成功',
+            message: '即将回到首页',
+            type: 'success',
+            duration: 1000
+          })
+        }
+      },
+      transUploadImgLink(e) {
+        console.log(e)
+        this.imgUpload = e
       }
     },
     components: {

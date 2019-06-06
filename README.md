@@ -29,4 +29,14 @@
 
 - 后台管理页面
 - 详情页面的TOC
+- Github Auth
 
+```
+http://www.alfxjx.club/
+?loginRes=true
+&username=Alfxjx
+&openId=28646799
+&avatar=https%3A%2F%2Favatars1.githubusercontent.com%2Fu%2F28646799%3Fv%3D4
+&_id=5c76328fade7a550cc0f8de3
+\#/home
+```
