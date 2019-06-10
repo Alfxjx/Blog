@@ -11,8 +11,10 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon, FontAwesomeLayers, FontAwesomeLayersText } from '@fortawesome/vue-fontawesome'
 import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
+import VueClipboard from 'vue-clipboard2'
 
 Vue.use(mavonEditor)
+Vue.use(VueClipboard)
 
 library.add(fas)
 Vue.component('font-awesome-icon', FontAwesomeIcon)

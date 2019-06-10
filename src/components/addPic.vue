@@ -1,23 +1,41 @@
 <template>
   <div class="add-blog-img">
     <!--todo 设置插入图片，可以选择为文章第一个图-->
-    <button class="add-btn btn btn-default" @click="chooseFile">
+    <button class="btn btn-primary" @click="chooseFile">
       <span style="color: red">* </span>
       添加图片
     </button>
     <input type="file" class="file-add" id="file" ref="file" @change="showFile"/>
     <span class="pic-name" id="aim">{{picNameAdded}}</span>
-    <!--TODO 需要添加删除栏-->
-    <button class="add-btn btn btn-default" @click="uploadPic()">
+    <button class="btn btn-primary" @click="uploadPic()">
       <span style="color: red">* </span>
       上传图片
     </button>
     <span class="pic-name">{{mdName}}</span>
+    <div class="btn-group">
+      <button
+        type="button"
+        class="btn btn-danger"
+        @click="delUpload"
+      >
+        删除
+      </button>
+      <button
+        type="button"
+        class="btn btn-primary"
+        v-clipboard:copy="mdName"
+        v-clipboard:success="onCopy"
+        v-clipboard:error="onError"
+      >
+        复制
+      </button>
+    </div>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
   import { uploadImg } from '../api/api'
+  import { Message } from 'element-ui'
 
   export default {
     name: 'addPic',
@@ -54,6 +72,27 @@
           this.picLink = res.data
         }
         this.$emit('listenLink', res.data)
+      },
+      delUpload() {
+        Message({
+          type: 'warning',
+          message: '以后会开放此功能',
+          duration: 1000
+        })
+      },
+      onCopy(e) {
+        Message({
+          type: 'info',
+          message: '拷贝成功',
+          duration: 1000
+        })
+      },
+      onError(e) {
+        Message({
+          type: 'warning',
+          message: '拷贝失败',
+          duration: 1000
+        })
       }
     }
   }
@@ -79,6 +118,9 @@
     width: 20em;
     margin: auto 1em;
     padding: 0 1em;
+    overflow: hidden;
+    /*超出显示省略号*/
+    text-overflow: ellipsis;
     /*border: 1px solid #000;*/
   }
 </style>
