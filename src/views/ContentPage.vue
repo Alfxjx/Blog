@@ -1,5 +1,6 @@
 <template>
   <div id="content-page">
+    <indicator></indicator>
     <div class="main-page">
       <content-title :title="ctx.title" :author="ctx.author" :createdAt="ctx.createdAt"></content-title>
       <div class="content-main-wrapper">
@@ -14,6 +15,7 @@
   import ContentTitle from '../components/ContentTitle'
   import TheFooter from '../components/TheFooter'
   import top from '../components/top.vue'
+  import indicator from '../components/indicator'
   import { get } from '../api/api.js'
   import marked from 'marked'
 
@@ -62,7 +64,8 @@
     components: {
       ContentTitle,
       TheFooter,
-      top
+      top,
+      indicator
     }
   }
 </script>

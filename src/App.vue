@@ -1,13 +1,11 @@
 <template>
   <div id="app">
-    <indicator></indicator>
     <the-header></the-header>
     <router-view></router-view>
   </div>
 </template>
 <script>
   import TheHeader from './components/TheHeader'
-  import indicator from './components/indicator'
   import { Notification } from 'element-ui'
 
   export default {
@@ -22,7 +20,7 @@
       // })
     },
     components: {
-      TheHeader, indicator
+      TheHeader
     }
   }
 </script>

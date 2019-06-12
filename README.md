@@ -38,6 +38,5 @@ http://www.alfxjx.club/
 &username=Alfxjx
 &openId=28646799
 &avatar=https%3A%2F%2Favatars1.githubusercontent.com%2Fu%2F28646799%3Fv%3D4
-&_id=5c76328fade7a550cc0f8de3
-\#/home
+&_id=5c76328fade7a550cc0f8de3#/home
 ```

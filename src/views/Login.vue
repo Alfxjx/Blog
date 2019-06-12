@@ -56,8 +56,8 @@
     name: 'login',
     data() {
       return {
-        username: 'likangbai',
-        password: '123456',
+        username: '',
+        password: '',
         eyeOpen: require('../assets/eyeOpen.png'),
         eyeClose: require('../assets/eyeClose.png'),
         isShow: true,
@@ -90,6 +90,7 @@
             console.log('登录失败')
           } else {
             console.log('登录成功')
+            console.log(ret.data.username)
             // add to localStorage
             this.$store.dispatch('userInfo', {
               username: ret.data.username,
