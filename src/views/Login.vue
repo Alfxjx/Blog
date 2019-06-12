@@ -43,7 +43,6 @@
         <a
           class="btn btn-success"
           href="http://www.alfxjx.club/api-blog/auth/github"
-          target="_blank"
         >Github登录</a>
       </div>
     </div>

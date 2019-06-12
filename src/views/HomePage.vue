@@ -24,6 +24,14 @@
         title: 'Live life to its fullest.'
       }
     },
+    created() {
+      this._getUrlParams()
+    },
+    methods: {
+      _getUrlParams() {
+        console.log('get login params')
+      }
+    },
     components: {
       HomeSwiper, CardList, HomeSideBar, TheFooter, top
     }
