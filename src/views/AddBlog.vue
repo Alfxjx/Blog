@@ -126,12 +126,12 @@
           table: true, // 表格
           fullscreen: false, // 全屏编辑
           readmodel: false, // 沉浸式阅读
-          htmlcode: false, // 展示html源码
+          htmlcode: true, // 展示html源码
           help: true, // 帮助
           /* 1.3.5 */
           undo: true, // 上一步
           redo: true, // 下一步
-          trash: false, // 清空
+          trash: true, // 清空
           save: false, // 保存（触发events中的save事件）
           /* 1.4.2 */
           navigation: true, // 导航目录
@@ -249,14 +249,6 @@
     padding: 0 5% 0 2.5%;
   }
 
-  .add-blog-img {
-    width: 80%;
-    margin: 0 0 1em 8.5em;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-  }
-
   .add-blog-content {
     margin: 0 auto;
     width: 75%;
@@ -264,5 +256,31 @@
 
   .submit-blog {
     margin: 1em auto 0;
+  }
+  @media screen and (max-width: 960px) {
+    .input-group{
+      width: 90%;
+    }
+    .input-group:nth-child(1) {
+      padding: 0;
+    }
+
+    .input-group:nth-child(3) {
+      padding: 0;
+    }
+
+    .input-group:nth-child(2) {
+      padding: 0;
+    }
+
+    .input-group:nth-child(4) {
+      padding: 0;
+    }
+    .add-main{
+      padding: 0;
+    }
+    .add-blog-content{
+      width: 90%;
+    }
   }
 </style>

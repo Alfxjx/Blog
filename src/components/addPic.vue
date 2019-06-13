@@ -1,34 +1,38 @@
-<template>
+<template xmlns:v-clipboard="http://www.w3.org/1999/xhtml">
   <div class="add-blog-img">
     <!--todo 设置插入图片，可以选择为文章第一个图-->
-    <button class="btn btn-primary" @click="chooseFile">
-      <span style="color: red">* </span>
-      添加图片
-    </button>
-    <input type="file" class="file-add" id="file" ref="file" @change="showFile"/>
-    <span class="pic-name" id="aim">{{picNameAdded}}</span>
-    <button class="btn btn-primary" @click="uploadPic()">
-      <span style="color: red">* </span>
-      上传图片
-    </button>
-    <span class="pic-name">{{mdName}}</span>
-    <div class="btn-group">
-      <button
-        type="button"
-        class="btn btn-danger"
-        @click="delUpload"
-      >
-        删除
+    <div class="left-side-add add-pic-section">
+      <button class="btn btn-primary" @click="chooseFile">
+        <span style="color: red">* </span>
+        添加图片
       </button>
-      <button
-        type="button"
-        class="btn btn-primary"
-        v-clipboard:copy="mdName"
-        v-clipboard:success="onCopy"
-        v-clipboard:error="onError"
-      >
-        复制
+      <input type="file" class="file-add" id="file" ref="file" @change="showFile"/>
+      <span class="pic-name" id="aim">{{picNameAdded}}</span>
+      <button class="btn btn-primary" @click="uploadPic()">
+        <span style="color: red">* </span>
+        上传图片
       </button>
+    </div>
+    <div class="right-side-add add-pic-section">
+      <span class="pic-name">{{mdName}}</span>
+      <div class="btn-group">
+        <button
+          type="button"
+          class="btn btn-danger"
+          @click="delUpload"
+        >
+          删除
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          v-clipboard:copy="mdName"
+          v-clipboard:success="onCopy"
+          v-clipboard:error="onError"
+        >
+          复制
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -103,24 +107,51 @@
     position: relative;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
-  }
-
-  .add-btn {
-    background-color: #EEE;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 1em;
   }
 
   .file-add {
     display: none;
   }
 
+  .add-pic-section {
+    width: 45%;
+    margin: 0 0 1em 0;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .right-side-add {
+    padding: 0 5% 0 2.5%;
+  }
+
+  .left-side-add {
+    padding: 0 2.5% 0 5%;
+  }
+
   .pic-name {
-    width: 20em;
-    margin: auto 1em;
-    padding: 0 1em;
+    padding: 6px 12px;
     overflow: hidden;
     /*超出显示省略号*/
     text-overflow: ellipsis;
     /*border: 1px solid #000;*/
+  }
+
+  @media screen and (max-width: 960px) {
+    .add-pic-section {
+      width: 90%;
+    }
+
+    .left-side-add {
+      padding: 0;
+    }
+
+    .right-side-add {
+      padding: 0;
+    }
   }
 </style>
