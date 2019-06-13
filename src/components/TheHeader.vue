@@ -8,42 +8,44 @@
       <div class="the-header-btn the-round-btn">
         <font-awesome-icon :icon="['fas','plus-circle']" @click="goTo('add')"/>
         <!--<img-->
-          <!--src="../assets/add.png"-->
-          <!--width="20"-->
-          <!--height="20"-->
-          <!--alt="add"-->
-          <!--title="add new"-->
-          <!--@click="goTo('add')"-->
+        <!--src="../assets/add.png"-->
+        <!--width="20"-->
+        <!--height="20"-->
+        <!--alt="add"-->
+        <!--title="add new"-->
+        <!--@click="goTo('add')"-->
         <!--&gt;-->
       </div>
     </div>
     <div class="the-header-side the-header-right">
       <div class="the-header-btn the-round-btn">
-        <font-awesome-icon :icon="['fas','user']" @click="goTo('login')"/>
+        <font-awesome-icon :icon="['fas','user']" @click="handleGoTo('login')"/>
         <!--<img-->
-          <!--src="../assets/man.png"-->
-          <!--width="20"-->
-          <!--height="20"-->
-          <!--alt="login"-->
-          <!--title="login"-->
-          <!--@click="goTo('login')"-->
+        <!--src="../assets/man.png"-->
+        <!--width="20"-->
+        <!--height="20"-->
+        <!--alt="login"-->
+        <!--title="login"-->
+        <!--@click="goTo('login')"-->
         <!--&gt;-->
       </div>
       <div class="the-header-btn the-round-btn">
         <font-awesome-icon :icon="['fas','sliders-h']" @click="goTo('admin')"/>
         <!--<img-->
-          <!--src="../assets/setting.png"-->
-          <!--width="20"-->
-          <!--height="20"-->
-          <!--alt="admin"-->
-          <!--title="admin"-->
-          <!--@click="goTo('admin')"-->
+        <!--src="../assets/setting.png"-->
+        <!--width="20"-->
+        <!--height="20"-->
+        <!--alt="admin"-->
+        <!--title="admin"-->
+        <!--@click="goTo('admin')"-->
         <!--&gt;-->
       </div>
     </div>
   </div>
 </template>
 <script>
+  import { MessageBox } from 'element-ui'
+
   export default {
     data() {
       return {
@@ -54,6 +56,22 @@
     methods: {
       goTo(url) {
         this.$router.push('/' + url)
+      },
+      logout() {
+        // 取消登录
+        this.$store.commit('logout')
+        localStorage.removeItem('username')
+        localStorage.removeItem('avatar')
+        localStorage.removeItem('_id')
+      },
+      handleGoTo(url) {
+        let isLogin = this.$store.state.isLogin
+        if (!isLogin) {
+          this.goTo(url)
+        } else {
+          // TODO
+          MessageBox.confirm('提示', {})
+        }
       }
     }
   }

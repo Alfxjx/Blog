@@ -8,6 +8,7 @@
             class="input-group-addon"
             id="basic-addon1"
           >
+            <span style="color: red">* </span>
             标题
           </span>
           <input
@@ -23,6 +24,7 @@
             class="input-group-addon"
             id="basic-addon2"
           >
+            <span style="color: red">* </span>
             分类
           </span>
           <input
@@ -38,6 +40,7 @@
             class="input-group-addon"
             id="basic-addon3"
           >
+            <span style="color: red">* </span>
             标签
           </span>
           <input
@@ -53,6 +56,7 @@
             class="input-group-addon"
             id="basic-addon4"
           >
+            <span style="color: red">* </span>
             描述
           </span>
           <input
@@ -64,22 +68,12 @@
           />
         </div>
       </div>
-      <div class="add-blog-img">
-        <!--todo 设置插入图片，可以选择为文章第一个图-->
-        <!--<button-->
-        <!--type="button"-->
-        <!--class="btn btn-default btn-sm"-->
-        <!--@click="submitImg"-->
-        <!--&gt;-->
-        <!--上传题图-->
-        <!--</button>-->
-        <!--<input type="radio" id="radio1">-->
-        <!--<label>使用文章中的图片作为题图</label>-->
-      </div>
+      <add-pic @listenLink="transUploadImgLink"></add-pic>
       <div class="add-blog-content">
         <mavon-editor
           v-model="content"
           :subfield="false"
+          :toolbars="tb"
         />
       </div>
       <div class="submit-blog">
@@ -100,6 +94,7 @@
 <script type="text/ecmascript-6">
   import TheFooter from '../components/TheFooter'
   import top from '../components/top'
+  import addPic from '../components/addPic'
   import { Notification, Message } from 'element-ui'
   import { generalRequest } from '../api/api'
 
@@ -111,14 +106,50 @@
         title: '',
         tags: '',
         desc: '',
-        content: '',
-        imgUpload: ''
+        content: '#开始编辑',
+        imgUpload: '',
+        tb: {
+          bold: true, // 粗体
+          italic: true, // 斜体
+          header: true, // 标题
+          underline: true, // 下划线
+          strikethrough: true, // 中划线
+          mark: true, // 标记
+          superscript: true, // 上角标
+          subscript: true, // 下角标
+          quote: true, // 引用
+          ol: true, // 有序列表
+          ul: true, // 无序列表
+          link: true, // 链接
+          imagelink: false, // 图片链接
+          code: true, // code
+          table: true, // 表格
+          fullscreen: false, // 全屏编辑
+          readmodel: false, // 沉浸式阅读
+          htmlcode: true, // 展示html源码
+          help: true, // 帮助
+          /* 1.3.5 */
+          undo: true, // 上一步
+          redo: true, // 下一步
+          trash: true, // 清空
+          save: false, // 保存（触发events中的save事件）
+          /* 1.4.2 */
+          navigation: true, // 导航目录
+          /* 2.1.8 */
+          alignleft: true, // 左对齐
+          aligncenter: true, // 居中
+          alignright: true, // 右对齐
+          /* 2.2.1 */
+          subfield: true, // 单双栏模式
+          preview: true // 预览
+        }
       }
     },
     created() {
       Message({
         type: 'info',
-        message: '为了美观，文章一定要有一个图片'
+        message: '先添加再上传，复制对应的markdown插入文中即可',
+        duration: 5000
       })
     },
     computed: {
@@ -136,7 +167,7 @@
     methods: {
       async submitBlog() {
         // TODO
-        let res = await generalRequest('/blog', 'post', {
+        let post = await generalRequest('/blog', 'post', {
           title: this.title,
           author: this.author,
           category: this.category,
@@ -145,16 +176,29 @@
           image: this.imgUpload,
           content: this.content
         })
-        Notification({
-          title: '创建博客成功',
-          message: '即将回到首页',
-          type: 'success',
-          duration: 1000
-        })
+        if (!post) {
+          Notification({
+            title: '创建失败',
+            message: post.msg,
+            type: 'fail',
+            duration: 1000
+          })
+        } else {
+          Notification({
+            title: '创建博客成功',
+            message: '即将回到首页',
+            type: 'success',
+            duration: 1000
+          })
+        }
+      },
+      transUploadImgLink(e) {
+        console.log(e)
+        this.imgUpload = e
       }
     },
     components: {
-      TheFooter, top
+      TheFooter, top, addPic
     }
   }
 </script>
@@ -205,20 +249,38 @@
     padding: 0 5% 0 2.5%;
   }
 
-  .add-blog-img {
-    width: 80%;
-    margin: 0 0 1em 8.5em;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-  }
-
   .add-blog-content {
     margin: 0 auto;
     width: 75%;
   }
 
   .submit-blog {
-    margin-top: 1em;
+    margin: 1em auto 0;
+  }
+  @media screen and (max-width: 960px) {
+    .input-group{
+      width: 90%;
+    }
+    .input-group:nth-child(1) {
+      padding: 0;
+    }
+
+    .input-group:nth-child(3) {
+      padding: 0;
+    }
+
+    .input-group:nth-child(2) {
+      padding: 0;
+    }
+
+    .input-group:nth-child(4) {
+      padding: 0;
+    }
+    .add-main{
+      padding: 0;
+    }
+    .add-blog-content{
+      width: 90%;
+    }
   }
 </style>

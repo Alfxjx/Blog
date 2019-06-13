@@ -16,12 +16,15 @@
 - 登录注册
 - 主页的side,热门文章的排序
 - 关于
+- 上传图片的功能
+- 写博客的界面
 
 ## TODO
 
 
-- 检查是否已经登录，路由守卫
-- 写博客的界面
+- 路由守卫设置登录之后的重定向
+- TheHeader取消登录
+- Github Auth
 
 ## 还未做的部分
 
@@ -29,3 +32,11 @@
 - 后台管理页面
 - 详情页面的TOC
 
+```
+http://www.alfxjx.club/
+?loginRes=true
+&username=Alfxjx
+&openId=28646799
+&avatar=https%3A%2F%2Favatars1.githubusercontent.com%2Fu%2F28646799%3Fv%3D4
+&_id=5c76328fade7a550cc0f8de3#/home
+```

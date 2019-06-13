@@ -25,5 +25,8 @@
   }
 </script>
 <style>
-
+  #app {
+    /*for indicator*/
+    position: relative;
+  }
 </style>

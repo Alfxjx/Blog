@@ -28,6 +28,7 @@
           type="text"
           placeholder="请输入密码"
           v-model="password"
+          @keyup.enter="login"
         >
         <span @click="showPassword" class="input-do-btn">
         <img :src="eyeOpen" alt="view" v-show="isShow" width="16px" height="16px">
@@ -42,7 +43,6 @@
         <a
           class="btn btn-success"
           href="http://www.alfxjx.club/api-blog/auth/github"
-          target="_blank"
         >Github登录</a>
       </div>
     </div>
@@ -90,6 +90,7 @@
             console.log('登录失败')
           } else {
             console.log('登录成功')
+            console.log(ret.data.username)
             // add to localStorage
             this.$store.dispatch('userInfo', {
               username: ret.data.username,

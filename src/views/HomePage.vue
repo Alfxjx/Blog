@@ -1,5 +1,6 @@
 <template>
   <div id="home-page">
+    <indicator></indicator>
     <div class="main-page">
       <home-swiper :title="title"></home-swiper>
       <div class="home-context">
@@ -17,6 +18,7 @@
   import HomeSideBar from '../components/HomeSideBar'
   import TheFooter from '../components/TheFooter'
   import top from '../components/top.vue'
+  import indicator from '../components/indicator'
 
   export default {
     data() {
@@ -24,8 +26,38 @@
         title: 'Live life to its fullest.'
       }
     },
+    created() {
+      this._getUrlParams()
+    },
+    methods: {
+      // 用于github登录
+      _getUrlParams() {
+        // let tmp = 'http://www.alfxjx.club/?loginRes=true&username=Alfxjx&openId=28646799&avatar=https%3A%2F%2Favatars1.githubusercontent.com%2Fu%2F28646799%3Fv%3D4&_id=5c76328fade7a550cc0f8de3#/home\n'
+        let linkExist = window.location.href.split('?')[1]
+        if (linkExist) {
+          let params = linkExist.split('&')
+          let _loginRes = params[0].split('=')[1]
+          let _username = params[1].split('=')[1]
+          // let _openId = params[2].split('=')[1]
+          let _avatar = params[3].split('=')[1]
+          let _id = params[4].split('=')[1].substring(0, params[4].split('=')[1].length - 7)
+          this.$store.dispatch('userInfo', {
+            username: _username,
+            avatar: _avatar,
+            _id: _id
+          })
+          localStorage.setItem('username', _username)
+          localStorage.setItem('avatar', _avatar)
+          localStorage.setItem('_id', _id)
+          console.log(_loginRes)
+          this.$store.commit('login')
+        } else {
+          console.log('未登录')
+        }
+      }
+    },
     components: {
-      HomeSwiper, CardList, HomeSideBar, TheFooter, top
+      HomeSwiper, CardList, HomeSideBar, TheFooter, top, indicator
     }
   }
 </script>
