@@ -16,21 +16,21 @@
 - 登录注册
 - 主页的side,热门文章的排序
 - 关于
-- 上传图片的功能（90%）
+- 上传图片的功能
+- 写博客的界面
 
 ## TODO
 
 
 - 路由守卫设置登录之后的重定向
-- 写博客的界面
 - TheHeader取消登录
+- Github Auth
 
 ## 还未做的部分
 
 
 - 后台管理页面
 - 详情页面的TOC
-- Github Auth
 
 ```
 http://www.alfxjx.club/
