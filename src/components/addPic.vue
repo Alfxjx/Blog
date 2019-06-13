@@ -15,7 +15,7 @@
     </div>
     <div class="right-side-add add-pic-section">
       <span class="pic-name">{{mdName}}</span>
-      <div class="btn-group">
+      <div class="btn-group min-width-btn">
         <button
           type="button"
           class="btn btn-danger"
@@ -122,6 +122,7 @@
     width: 45%;
     margin: 0 0 1em 0;
     display: flex;
+    align-items: center;
     justify-content: space-between;
   }
 
@@ -139,6 +140,10 @@
     /*超出显示省略号*/
     text-overflow: ellipsis;
     /*border: 1px solid #000;*/
+  }
+
+  .min-width-btn{
+    min-width: 108px;
   }
 
   @media screen and (max-width: 960px) {
