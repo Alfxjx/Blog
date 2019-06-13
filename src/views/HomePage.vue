@@ -23,7 +23,7 @@
   export default {
     data() {
       return {
-        title: '测试一下webHooks'
+        title: 'Live life to its fullest.'
       }
     },
     created() {
