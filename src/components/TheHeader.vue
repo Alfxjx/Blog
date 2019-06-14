@@ -44,7 +44,7 @@
   </div>
 </template>
 <script>
-  import { MessageBox } from 'element-ui'
+  import { MessageBox, Message } from 'element-ui'
 
   export default {
     data() {
@@ -57,7 +57,7 @@
       goTo(url) {
         this.$router.push('/' + url)
       },
-      logout() {
+      _logout() {
         // 取消登录
         this.$store.commit('logout')
         localStorage.removeItem('username')
@@ -70,7 +70,22 @@
           this.goTo(url)
         } else {
           // TODO
-          MessageBox.confirm('提示', {})
+          MessageBox.confirm('是否确定退出', '提示', {
+            confirmButtonText: '确定',
+            cancelButtonText: '取消',
+            type: 'warning'
+          }).then(() => {
+            this._logout()
+            Message({
+              type: 'success',
+              message: '退出成功!'
+            })
+          }).catch(() => {
+            Message({
+              type: 'info',
+              message: '不再退出'
+            })
+          })
         }
       }
     }

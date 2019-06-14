@@ -18,13 +18,13 @@
 - 关于
 - 上传图片的功能
 - 写博客的界面
+- Github Auth
 
 ## TODO
 
 
 - 路由守卫设置登录之后的重定向
 - TheHeader取消登录
-- Github Auth
 
 ## 还未做的部分
 
