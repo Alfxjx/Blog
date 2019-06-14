@@ -59,7 +59,7 @@ const router = new Router({
 
 router.beforeEach((to, from, next) => {
   // 路由守卫
-  const nextRoute = ['add', 'admin']
+  const nextRoute = ['add'] // admin
   let isLogin = store.state.isLogin
   if (nextRoute.indexOf(to.name) >= 0) {
     if (!isLogin) {
