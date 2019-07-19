@@ -1,14 +1,15 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HomePage from './views/HomePage.vue'
-import Archive from './views/Archive.vue'
+// import Archive from './views/Archive.vue'
 import ContentPage from './views/ContentPage.vue'
 import Login from './views/Login.vue'
 import AdminEdit from './views/AdminEdit.vue'
 import About from './views/About.vue'
 import AddBlog from './views/AddBlog'
 import store from './store'
-// const Archive = () => import('./views/Archive.vue')
+// import loading from './components/loading'
+const Archive = () => import('./views/Archive.vue')
 
 Vue.use(Router)
 
@@ -59,7 +60,7 @@ const router = new Router({
 
 router.beforeEach((to, from, next) => {
   // 路由守卫
-  const nextRoute = ['add'] // admin
+  const nextRoute = ['admin'] // admin
   let isLogin = store.state.isLogin
   if (nextRoute.indexOf(to.name) >= 0) {
     if (!isLogin) {

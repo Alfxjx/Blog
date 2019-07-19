@@ -15,7 +15,8 @@ export default new Vuex.Store({
     username: '',
     avatar: '',
     _id: '',
-    isLogin: false
+    isLogin: false,
+    showLoading: false
   },
   mutations: {
     getBlogList(state, list) {
