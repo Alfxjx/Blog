@@ -29,7 +29,8 @@
     },
     created() {
       this._getUrlParams()
-      this._showLoading()
+      // this._showLoading()
+      this.$loading()
     },
     methods: {
       // 用于github登录
