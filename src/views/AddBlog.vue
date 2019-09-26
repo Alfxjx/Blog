@@ -84,6 +84,7 @@
         >
           点击提交
         </button>
+        <p id="notify-me">暂时只能超级号写文章</p>
       </div>
       <top></top>
     </div>
@@ -256,6 +257,13 @@
 
   .submit-blog {
     margin: 1em auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #notify-me{
+    margin: 1em auto;
+    color: red;
   }
   @media screen and (max-width: 960px) {
     .input-group{

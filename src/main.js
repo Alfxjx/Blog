@@ -12,7 +12,9 @@ import { FontAwesomeIcon, FontAwesomeLayers, FontAwesomeLayersText } from '@fort
 import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
 import VueClipboard from 'vue-clipboard2'
+import loading from './plugins/loading'
 
+Vue.use(loading)
 // 引入基本模板
 let echarts = require('echarts/lib/echarts')
 

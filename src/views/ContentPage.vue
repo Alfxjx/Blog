@@ -18,6 +18,7 @@
   import indicator from '../components/indicator'
   import { get } from '../api/api.js'
   import marked from 'marked'
+  import { Loading } from 'element-ui'
 
   export default {
     name: 'content-page',
@@ -29,6 +30,7 @@
     },
     created() {
       this._getContent()
+      this._showLoading()
     },
     mounted() {
       this._markdown()
@@ -59,6 +61,14 @@
           smartLists: true,
           smartypants: false
         })
+      },
+      _showLoading() {
+        let loading = Loading.service({
+          text: 'loading'
+        })
+        setTimeout(() => {
+          loading.close()
+        }, 1000)
       }
     },
     components: {

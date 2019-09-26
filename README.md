@@ -40,3 +40,8 @@ http://www.alfxjx.club/
 &avatar=https%3A%2F%2Favatars1.githubusercontent.com%2Fu%2F28646799%3Fv%3D4
 &_id=5c76328fade7a550cc0f8de3#/home
 ```
+## Bug List
+
+- 已知在跳转登录了页面之后的路由守卫问题
+- 已知的TheFooter底栏的下边距出现的过大问题
+- 未知的可能出现的首页异常布局。。

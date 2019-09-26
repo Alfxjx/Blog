@@ -19,6 +19,7 @@
   import TheFooter from '../components/TheFooter'
   import top from '../components/top.vue'
   import indicator from '../components/indicator'
+  import { Loading } from 'element-ui'
 
   export default {
     data() {
@@ -28,6 +29,8 @@
     },
     created() {
       this._getUrlParams()
+      // this._showLoading()
+      this.$loading()
     },
     methods: {
       // 用于github登录
@@ -54,6 +57,14 @@
         } else {
           console.log('未登录')
         }
+      },
+      _showLoading() {
+        let loading = Loading.service({
+          text: 'loading'
+        })
+        setTimeout(() => {
+          loading.close()
+        }, 1000)
       }
     },
     components: {
