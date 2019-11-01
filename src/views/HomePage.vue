@@ -41,13 +41,13 @@ export default {
       let OauthRes;
       if (link.indexOf("?") !== -1) {
         OauthRes = getParams(link);
-        console.log(OauthRes)
+        console.log(OauthRes);
         this.$store.dispatch("userInfo", {
           username: OauthRes.username,
           avatar: OauthRes.avatar,
           _id: OauthRes._id
         });
-        this.$store.commit("login",OauthRes.loginRes);
+        this.$store.commit("login", OauthRes.loginRes);
         localStorage.setItem("username", OauthRes.username);
         localStorage.setItem("avatar", OauthRes.avatar);
         localStorage.setItem("_id", OauthRes._id);

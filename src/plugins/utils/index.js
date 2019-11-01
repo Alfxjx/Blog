@@ -1,11 +1,11 @@
 export function getParams(url) {
   let paramsList;
-  let hashLink;
+  // let hashLink;
   let res = {};
   if (url.indexOf('?') !== -1) {
     paramsList = url.split('?')[1];
     if (paramsList.indexOf('#') !== -1) {
-      hashLink = paramsList.split('#')[1];
+      // hashLink = paramsList.split('#')[1];
       paramsList = paramsList.split('#')[0];
     }
     paramsList = paramsList.split('&');
