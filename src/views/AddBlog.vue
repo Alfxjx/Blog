@@ -145,14 +145,15 @@ export default {
   },
   methods: {
     async submitBlog() {
+      // TODO still tags
       console.log(this.formedTags);
       let post = await generalRequest("/blog", "post", {
         title: this.title,
         author: this.author,
         category: this.category,
-        tags: ['1'],
+        tags: this.formedTags,
         desc: this.desc,
-        image: '1',
+        image: this.imgUpload,
         content: this.content
       });
       if (!post) {

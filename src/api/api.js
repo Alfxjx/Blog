@@ -223,6 +223,7 @@ function getCookie(cName) {
 // })
 
 export async function generalRequest(url, method, params) {
+  // TODO instance need check
   const res = await instance[method](baseUrl + url, params)
   console.log(res)
   const { statusCode } = res.data
