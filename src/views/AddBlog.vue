@@ -168,6 +168,7 @@
     methods: {
       async submitBlog() {
         // TODO
+        console.log(this.formedTags)
         let post = await generalRequest('/blog', 'post', {
           title: this.title,
           author: this.author,
