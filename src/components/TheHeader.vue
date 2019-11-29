@@ -2,7 +2,7 @@
   <div id="the-header">
     <div class="the-header-side the-header-left">
       <!--<img src="../assets/logo.png" width="64" height="18" alt="logo" @click="goTo(home)">-->
-      <span @click="goTo('home')">我的博客</span>
+      <span @click="goTo('home')">alfxjx</span>
       <div class="the-header-btn" @click="goTo('archive')">{{btn1}}</div>
       <div class="the-header-btn" @click="goTo('about')">{{btn2}}</div>
       <div class="the-header-btn the-round-btn" v-show="false">

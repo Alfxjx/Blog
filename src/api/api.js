@@ -180,7 +180,8 @@ const axiosBaseConfig = {
     // 请求对象转换成appliction/x-www-form-urlencoded格式
     if (typeof data === 'object') {
       // headers['Content-Type'] = 'appliction/x-www-form-urlencoded'
-      return qs.stringify(data)
+      headers['Content-Type'] = 'application/json'
+      // return qs.stringify(data)
     }
     return data
   }],

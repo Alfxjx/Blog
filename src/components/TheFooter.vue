@@ -27,7 +27,7 @@
           href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12011202000255"
         >
           <img src="../assets/beian.png">
-          <span>津公网安备 12011202000255号</span>
+          <span>津ICP备18010186号-1</span>
         </a>
       </div>
     </div>
