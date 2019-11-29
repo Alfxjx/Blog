@@ -27,7 +27,7 @@
             <img class="card-icon" src="../assets/view.png" alt="阅读">
             <span class="card-count">{{viewCount}}</span>
           </div>
-          <div class="card-like card-stat-item" @click="addLike(_id)">
+          <div class="card-like card-stat-item" @click="addLike(_id)" v-show="false">
             <font-awesome-icon class="card-icon" :icon="['fas','thumbs-up']"/>
             <!--<img class="card-icon" src="../assets/like.png" alt="喜欢">-->
             <span class="card-count">{{like}}</span>

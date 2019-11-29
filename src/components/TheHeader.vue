@@ -5,7 +5,7 @@
       <span @click="goTo('home')">我的博客</span>
       <div class="the-header-btn" @click="goTo('archive')">{{btn1}}</div>
       <div class="the-header-btn" @click="goTo('about')">{{btn2}}</div>
-      <div class="the-header-btn the-round-btn">
+      <div class="the-header-btn the-round-btn" v-show="false">
         <font-awesome-icon :icon="['fas','plus-circle']" @click="goTo('add')"/>
         <!--<img-->
         <!--src="../assets/add.png"-->
@@ -17,7 +17,7 @@
         <!--&gt;-->
       </div>
     </div>
-    <div class="the-header-side the-header-right">
+    <div class="the-header-side the-header-right" v-show="false">
       <div class="the-header-btn the-round-btn">
         <font-awesome-icon :icon="['fas','user']" @click="handleGoTo('login')"/>
         <!--<img-->

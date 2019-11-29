@@ -22,7 +22,7 @@ const router = new Router({
     {
       name: 'home',
       path: '/home',
-      component: HomePage
+      component: About
     },
     {
       name: 'archive',

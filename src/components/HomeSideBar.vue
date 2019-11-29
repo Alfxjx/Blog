@@ -1,5 +1,5 @@
 <template>
-  <div id="home-sidebar">
+  <div id="home-sidebar" v-show="false">
     <div class="side-about">
       <img class="side-avatar" src="../assets/pl.jpg" alt="avatar">
       <div class="about-detail">
